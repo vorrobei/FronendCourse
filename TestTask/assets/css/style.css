@@ -1,0 +1,108 @@
+body *
+{
+    font-family: Arial, serif;
+}
+
+.resume-container
+{
+    width: 100%;
+    max-width: 100%;
+}
+
+.resume-page
+{
+    width: 1000px;
+    margin: 20px auto;
+    box-shadow: 0 0 5px black;
+    padding: 20px;
+}
+
+.resume-page-block, .resume-page-header
+{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: 1px solid grey;
+}
+
+.resume-page .resume-page-block:last-child
+{
+    border-bottom: none;
+}
+
+.resume-page-leftblock
+{
+    flex-basis: 35%;
+    padding-right: 20px;
+}
+
+.resume-page-leftblock .resume-page-title
+{
+    text-align: right;
+}
+
+.resume-page-header
+{
+
+}
+
+.resume-page-header .resume-page-leftblock img
+{
+    width: 65%;
+}
+
+.resume-page-rightblock
+{
+    flex-basis: 60%;
+}
+
+.resume-page-rightblock ul
+{
+    margin-bottom: 40px;
+}
+
+.resume-page-fio
+{
+    font-weight: bold;
+    font-size: 28px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.resume-page-title
+{
+    font-size: 16px;
+    color: midnightblue;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.resume-page-text
+{
+    margin-bottom: 10px;
+}
+
+.resume-page-boldtext
+{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.resume-page-caps
+{
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    line-height: 30px;
+}
+
+.resume-page-skills .resume-page-work
+{
+    columns: 2;
+}
+
+.resume-page-work li
+{
+    margin-bottom: 15px;
+}
