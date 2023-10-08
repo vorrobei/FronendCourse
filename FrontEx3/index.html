@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Frontend course Ex3</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <form action=".\media.html">
+        <fieldset>            
+            <legend>Frontend course. Lesson №3. Form with html inputs + embeding resources</legend>
+            
+            <header>
+            </header>
+
+            <main class="form_main">
+                <input type="hidden" id="hiddenPI" title="hiddenPI" value="3,1415926535897932384626433832795028841971693993751058209749445923078164">
+
+                <section class="form_section_column">
+
+                    <section class="form_section">
+                        <div class="form_field">
+                            <div class="form_field_name"><label>Name</label></div>
+                            <div class="form_field_value"><input type="text" required></div>
+                        </div>
+                        <div class="form_field">
+                            <div class="form_field_name"><label>Email</label></div>
+                            <div class="form_field_value"><input type="email" required></div>
+                        </div>
+                        <div class="form_field">
+                            <div class="form_field_name"><label>Birthday</label></div>
+                            <div class="form_field_value"><input type="date" required></div>
+                        </div>
+                        <div class="form_field">
+                            <div class="form_field_name"><label>Phone</label></div>
+                            <div class="form_field_value"><input type="tel" id="phone" placeholder="xxx-xxx-xxxx" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><label> (format: xxx-xxx-xxxx)</label></div>
+                        </div>
+                        <div class="form_field">
+                            <div class="form_field_name"><label>Gender</label></div>
+                            <div class="form_field_value">
+                                <input type="radio" id="radio_gender_male" name="gender" value="male"><label>male</label>
+                                <input type="radio" id="radio_gender_female" name="gender" value="female"><label>female</label>
+                                <input type="radio" id="radio_gender_other" name="gender" value="other"><label>other</label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="form_section">
+                        <div class="form_field">
+                            <div class="form_field_name"><label>Password</label></div>
+                            <div class="form_field_value"><input type="password" required></div>
+                        </div>
+                        <div class="form_field">
+                            <div class="form_field_name"><label>Repeat password</label></div>
+                            <div class="form_field_value"><input type="password" required></div>
+                        </div>
+                    </section>
+
+                    <section class="form_section">
+                        <div class="form_field">
+                            <div class="form_field_name"><label>Your photo</label></div>
+                            <div class="form_field_value"><input type="file" accept="image/*"></div>
+                        </div>
+                        <div class="form_field">
+                            <div class="form_field_name"><label>Profile color</label></div>
+                            <div class="form_field_value"><input type="color"></div>
+                        </div>
+                        <div class="form_field">
+                            <div class="form_field_name"><label>Website</label></div>
+                            <div class="form_field_value"><input type="url" placeholder="http:\\www.yoursite.com"></div>
+                        </div>
+                    </section>
+
+                    <section class="form_section">
+                        <datalist id="skill_scale">
+                            <option value="1"></option>
+                            <option value="2"></option>
+                            <option value="3"></option>
+                            <option value="4"></option>
+                            <option value="5"></option>
+                        </datalist>
+                        <div class="form_field">
+                            <div class="form_field_name"><label>Analyst skills</label></div>
+                            <div class="form_field_value"><input type="range" min="1" max="5" list="skill_scale"></div>
+                        </div>
+                        <div class="form_field">
+                            <div class="form_field_name"><label>Frontend skills</label></div>
+                            <div class="form_field_value"><input type="range" min="1" max="5" list="skill_scale"></div>
+                        </div>
+                        <div class="form_field">
+                            <div class="form_field_name"><label>Backend skills</label></div>
+                            <div class="form_field_value"><input type="range" min="1" max="5" list="skill_scale"></div>
+                        </div>
+                        <div class="form_field">
+                            <div class="form_field_name"><label>QA skills</label></div>
+                            <div class="form_field_value"><input type="range" min="1" max="5" list="skill_scale"></div>
+                        </div>
+                        <div class="form_field">
+                            <div class="form_field_name"><label>Database skills</label></div>
+                            <div class="form_field_value"><input type="range" min="1" max="5" list="skill_scale"></div>
+                        </div>
+                    </section>
+
+                </section>
+
+                <section class="form_section_column">
+
+                    <section class="form_section">
+                        <input type="search" placeholder="find something...">
+                        <input type="button" value="Find">
+                    </section>
+
+                    <section class="form_section">
+                        <div class="form_check_box">
+                            <div class="form_check_box_caption"><label>Monday</label></div>
+                            <div class="form_check_box_value"><input type="checkbox" id="shedule_monday"></div>
+                        </div>
+                        <div class="form_check_box">
+                            <div class="form_check_box_caption"><label>Tuesday</label></div>
+                            <div class="form_check_box_value"><input type="checkbox" id="shedule_tuesday"></div>
+                        </div>
+                        <div class="form_check_box">
+                            <div class="form_check_box_caption"><label>Wednesday</label></div>
+                            <div class="form_check_box_value"><input type="checkbox" id="shedule_wednesday"></div>
+                        </div>
+                        <div class="form_check_box">
+                            <div class="form_check_box_caption"><label>Thursday</label></div>
+                            <div class="form_check_box_value"><input type="checkbox" id="shedule_thursday"></div>
+                        </div>
+                        <div class="form_check_box">
+                            <div class="form_check_box_caption"><label>Friday</label></div>
+                            <div class="form_check_box_value"><input type="checkbox" id="shedule_friday"></div>
+                        </div>
+                    </section>
+
+                    <section class="form_section">
+                        <div class="form_field">
+                            <div class="form_field_name"><label>Target month</label></div>
+                            <div class="form_field_value"><input type="month"></div>
+                        </div>
+                        <div class="form_field">
+                            <div class="form_field_name"><label>Start week</label></div>
+                            <div class="form_field_value"><input type="week"></div>
+                        </div>
+                        <div class="form_field">
+                            <div class="form_field_name"><label>Daily interval</label></div>
+                            <div class="form_field_value">
+                                <input id="daily_interval_start" type="time">
+                                <span>  -  </span>
+                                <input id="daily_interval_stop" type="time">
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="form_section">
+                        <div class="form_field">
+                            <div class="form_field_name"><label>Participants count</label></div>
+                            <div class="form_field_value"><input type="number" value="15" min="1" max="100"></div>
+                        </div>
+                        <div class="form_field">
+                            <div class="form_field_name"><label>Demo datetime</label></div>
+                            <div class="form_field_value"><input type="datetime-local"></div>
+                        </div>
+                    </section>
+                </section>
+            </main>
+
+            <footer class="form_footer">
+                <input type="reset" value="Reset">
+                <input type="submit" value="Submit">
+                <input class="fancy_button_submit" type="image" name="fancy_button" src=".\assets\img\send.png">
+            </footer>
+        </fieldset>
+    </form> 
+
+    <iframe class="media_gallery_frame" id="media_gallery" title="Media Gallery" src="./media.html">
+    </iframe>
+</body>
+</html>

@@ -1,0 +1,112 @@
+﻿body
+{
+}
+
+.form_main {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.form_section_column {
+    padding: 10px;
+    border-bottom: 1px solid grey; 
+    flex: 50%;
+}
+
+.form_section {
+    padding: 10px;
+    border-bottom: 1px solid grey;
+}
+
+.form_section:last-child {
+    padding: 10px;    
+    border-bottom: none
+}
+
+.form_field {
+    display: flex;
+}
+
+.form_field_name {
+    flex: 15%;
+    padding: 10px;
+}
+
+.form_field_value {
+    flex: 85%;
+    padding: 10px;
+}
+
+.form_check_box {
+    display: flex;
+}
+
+.form_check_box_caption {
+    flex: 10%;
+    padding: 10px;
+}
+
+.form_check_box_value {
+    flex: 90%;
+    padding: 10px;
+    text-align: left
+}
+
+.form_footer > * {    
+    vertical-align: middle;
+}
+
+.fancy_button_submit {
+    width: 150px;
+    height: 50px;
+}
+
+.gallery_header {   
+    padding: 20px;
+    border-bottom: 1px solid grey;
+}
+
+.gallery_grid {
+    height: 600px;
+}
+
+.gallery_grid_map {
+}
+
+.gallery_grid_map_image {
+    height: 100%;
+}
+
+.section_gallery {
+    border-bottom: 1px solid grey;
+    padding: 20px;
+    margin-right: 50px;
+}
+
+.section_gallery_row {
+    padding: 10px;
+    display: flex;
+    height: auto;
+}
+
+.section_gallery_row_pdf {
+    padding: 10px;
+    display: flex;
+    height: 700px;
+}
+
+.section_gallery_picture {
+    padding: 10px;
+    flex: 25%;
+}
+
+.gallery_img {
+    width: 70%;
+    height: auto;
+}
+
+.media_gallery_frame {
+    padding: 20px;
+    width: 100%;
+    height: 1200px;
+}

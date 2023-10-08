@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />    
+    <title>Frontend course Ex3 - embedding recources</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+    <header class="gallery_header">
+        <div class="gallery_grid">
+            <map class="gallery_grid_map" name="gallery_grid_map">
+                <area shape="rect"
+                      coords="0,0,200,200"
+                      href="https://developer.mozilla.org/docs/Web/HTML"
+                      target="_blank"
+                      alt="gallery grid" />
+                <area shape="rect"
+                      coords="200,0,400,200"
+                      href="https://developer.mozilla.org/docs/Web/HTML"
+                      target="_blank"
+                      alt="gallery grid" />
+                <area shape="rect"
+                      coords="400,0,600,200"
+                      href="https://developer.mozilla.org/docs/Web/HTML"
+                      target="_blank"
+                      alt="gallery grid" />
+            </map>
+            <img class="gallery_grid_map_image" usemap="#gallery_grid_map" src=".\assets\img\gallery_set1\grid-0807.png"/>
+        </div>
+    </header>
+
+    <main>
+        <section class="section_gallery">
+            <div class="section_gallery_row">
+                <picture class="section_gallery_picture">
+                    <source srcset=".\assets\img\gallery_set1\0001.png">
+                    <source srcset=".\assets\img\gallery_set2\0001.png">
+                    <img class="gallery_img" src=".\assets\img\gallery_placeholder.png">
+                </picture>
+                <picture class="section_gallery_picture">
+                    <source srcset=".\assets\img\gallery_set1\0002.png">
+                    <source srcset=".\assets\img\gallery_set2\0002.png">
+                    <img class="gallery_img" src=".\assets\img\gallery_placeholder.png">
+                </picture>
+                <picture class="section_gallery_picture">
+                    <source srcset=".\assets\img\gallery_set1\0003.png">
+                    <source srcset=".\assets\img\gallery_set2\0003.png">
+                    <img class="gallery_img" src=".\assets\img\gallery_placeholder.png">
+                </picture>
+                <picture class="section_gallery_picture">
+                    <source srcset=".\assets\img\gallery_set1\0004.png">
+                    <source srcset=".\assets\img\gallery_set2\0004.png">
+                    <img class="gallery_img" src=".\assets\img\gallery_placeholder.png">
+                </picture>
+            </div>
+            <div class="section_gallery_row">
+                <picture class="section_gallery_picture">
+                    <source srcset=".\assets\img\gallery_set1\0005.png">
+                    <source srcset=".\assets\img\gallery_set2\0005.png">
+                    <img class="gallery_img" src=".\assets\img\gallery_placeholder.png">
+                </picture>
+                <picture class="section_gallery_picture">
+                    <source srcset=".\assets\img\gallery_set1\0006.png">
+                    <source srcset=".\assets\img\gallery_set2\0006.png">
+                    <img class="gallery_img" src=".\assets\img\gallery_placeholder.png">
+                </picture>
+                <picture class="section_gallery_picture">
+                    <source srcset=".\assets\img\gallery_set1\0007.png">
+                    <source srcset=".\assets\img\gallery_set2\0007.png">
+                    <img class="gallery_img" src=".\assets\img\gallery_placeholder.png">
+                </picture>
+                <picture class="section_gallery_picture">
+                    <source srcset=".\assets\img\gallery_set1\0008.png">
+                    <source srcset=".\assets\img\gallery_set2\0008.png">
+                    <img class="gallery_img" src=".\assets\img\gallery_placeholder.png">
+                </picture>
+            </div>
+        </section>
+
+        <section class="section_gallery">
+            <div class="section_gallery_row">
+                <embed class="section_gallery_picture" src="https://www.youtube.com/embed/nJlHJZo66UA?si=V3ljPo9i57wYTKWs" title="YouTube video player">
+                <video controls class="section_gallery_picture">
+                    <source src="./assets/video/file_example_MP4_640_3MG.mp4" />
+                </video>
+                <audio controls src="./assets/audio/sample.mp3">                    
+                </audio>
+            </div>
+        </section>
+
+        <section class="section_gallery">
+            <div class="section_gallery_row_pdf">
+                <object class="section_gallery_picture" type="application/pdf" data="./assets/docs/BPMN_2_0.pdf#toolbar=0&navpanes=0&scrollbar=0"></object>
+                <object class="section_gallery_picture" type="application/pdf" data="./assets/docs/Requirements.pdf#toolbar=0&navpanes=0&scrollbar=0"></object>
+                <object class="section_gallery_picture" type="application/pdf" data="./assets/docs/UML.pdf#toolbar=0&navpanes=0&scrollbar=0"></object>
+            </div>
+        </section>
+    </main>
+
+    <footer></footer>
+</body>
+</html>
