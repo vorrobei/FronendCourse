@@ -1,0 +1,132 @@
+﻿.main__side-nav {
+    margin: 1rem 2rem;
+    padding: 1rem, 0;
+    position: relative;
+    width: 25%;
+    color: #4e4e4e;
+}
+
+.side-nav__menu {
+    list-style: none;
+    padding-top: 1rem;
+    padding-left: 0;
+}
+
+.side-menu__section {
+    padding-bottom: 2rem;
+}
+
+.side-menu-section__option-header-link {
+    text-decoration: none;
+    color: #4e4e4e;    
+}
+
+.side-menu-section__option-header {
+    font-size: 1.25rem;
+}
+
+.side-menu-section__option-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.side-submenu__option {
+    padding-top: 1rem;
+}
+
+.side-submenu__option-list {
+    padding-top: 1rem;
+}
+
+.submenu-option__link {
+    display: inline-flex;
+    text-decoration: none;
+    color: #4e4e4e;
+}
+
+.submenu-option__header {
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.submenu-details__summary {
+    cursor: pointer;
+}
+
+.submenu-details__list {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.submenu-details__option{
+    padding-top: 1rem;
+}
+
+.main__article-container {
+    display: flex;
+    width: 100%;
+    color: #4e4e4e;
+    padding: 1rem;
+}
+
+.article-container__article {
+    width: 80%;
+    margin-bottom: 2rem;
+}
+
+.article__header-container {
+    margin-bottom: 3rem;
+}
+
+.article__header {
+    font-size: 1.75rem;
+}
+
+.article__section {
+    padding-left: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+}
+
+.article-section__header {
+    margin-bottom: 2rem;
+}
+
+.article-section__text {
+    line-height: 1.75rem;
+    font-size: 1rem;
+}
+
+.article-container__article-nav {
+    width: 20%;
+}
+
+.article-nav__header {
+    font: 400 1.2rem /1.2 Inter,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;;
+    letter-spacing: 1.5px;
+    margin: 0 0 1rem;
+}
+
+.article-nav__list {
+    list-style: none;
+    padding-left: 0;
+    text-decoration: none;
+    border-left: 2px solid #808080;
+}
+
+.article-nav__option {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+}
+
+    .article-nav__option:hover {
+        background-color: #ef8f8f;
+        border-left: 2px solid #ff0000;
+    }
+
+.article-nav__option-link {
+    text-decoration: none;
+    color: #4e4e4e;
+}
