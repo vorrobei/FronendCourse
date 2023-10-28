@@ -1,6 +1,10 @@
-﻿.main__side-nav {
+﻿:root {
+    --row-gap: 1rem;
+}
+
+.main__side-nav {
     margin: 1rem 2rem;
-    padding: 1rem, 0;
+    padding: 1rem 0;
     position: relative;
     width: 25%;
     color: #4e4e4e;
@@ -18,7 +22,7 @@
 
 .side-menu-section__option-header-link {
     text-decoration: none;
-    color: #4e4e4e;    
+    color: #4e4e4e;
 }
 
 .side-menu-section__option-header {
@@ -58,7 +62,7 @@
     padding-left: 1rem;
 }
 
-.submenu-details__option{
+.submenu-details__option {
     padding-top: 1rem;
 }
 
@@ -103,7 +107,7 @@
 }
 
 .article-nav__header {
-    font: 400 1.2rem /1.2 Inter,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;;
+    font: 400 1.2rem /1.2 Inter, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;;
     letter-spacing: 1.5px;
     margin: 0 0 1rem;
 }
@@ -121,12 +125,26 @@
     text-decoration: none;
 }
 
-    .article-nav__option:hover {
-        background-color: #ef8f8f;
-        border-left: 2px solid #ff0000;
-    }
+.article-nav__option:hover {
+    background-color: #ef8f8f;
+    border-left: 2px solid #ff0000;
+}
 
 .article-nav__option-link {
     text-decoration: none;
     color: #4e4e4e;
+}
+
+.container {
+    max-width: 1440px;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    gap: var(--row-gap);
+}
+
+.row--centered-y {
+    align-items: center;
 }

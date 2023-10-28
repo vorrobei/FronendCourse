@@ -1,4 +1,4 @@
-﻿.header__banner {
+﻿.wrapper__banner {
     display: flex;
     height: 50px;
     margin-bottom: 1px;
@@ -9,7 +9,7 @@
     justify-content: center;
 }
 
-.header-nav-container__logo {
+.header__logo {
     padding: 5px;
     align-items: center;
     display: flex;
@@ -20,13 +20,17 @@
     height: 50px;
 }
 
-.header__navigation {
-    display: flex;
+.header {
     border-bottom: 1px solid #cdcdcd;
-    align-items: center;
 }
 
-.header-nav-container__nav {
+.header__container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__nav {
     margin-right: auto;
     order: 0;
     width: max-content;
@@ -44,16 +48,16 @@
     color: #1b1b1b;
     display: flex;
     gap: 0.25rem;
-    height: 2.5rem;    
+    height: 2.5rem;
     justify-content: center;
     padding-left: 1rem;
     padding-right: 1rem;
     position: relative;
 }
 
-    .header-nav__option-button:hover {
-        background-color: #ef8f8f;
-    }
+.header-nav__option-button:hover {
+    background-color: #ef8f8f;
+}
 
 .nav-search__form {
     align-items: center;
@@ -78,7 +82,7 @@
     width: 100%;
 }
 
-.nav-search-form__search-box::-webkit-search-cancel-button{
+.nav-search-form__search-box::-webkit-search-cancel-button {
     display: none;
 }
 
@@ -119,7 +123,7 @@
     border-radius: 0.25rem;
     color: #b3b3b3;
     display: flex;
-    font: 600 0.833rem /1.23 Inter,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font: 600 0.833rem /1.23 Inter, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     gap: 0.25rem;
     height: 1.25rem;
     justify-content: center;
@@ -128,9 +132,9 @@
     position: relative;
 }
 
-    .nav-search-form__button-wrap:hover {
-        background-color: #cdcdcd;
-    }
+.nav-search-form__button-wrap:hover {
+    background-color: #cdcdcd;
+}
 
 .nav-search-form__icon-cancel {
     background-color: #b3b3b3;
@@ -165,10 +169,10 @@
 }
 
 .header-nav__list-option {
-    display: list-item;    
+    display: list-item;
 }
 
-.header-nav__button-option{
+.header-nav__button-option {
     background: none;
     border: none;
     color: #4e4e4e;
@@ -179,7 +183,7 @@
     min-height: 53px;
 }
 
-.header-nav-container__theme {
+.header__theme {
     margin-right: 1rem;
 }
 
@@ -215,7 +219,7 @@
     border-radius: 0.25rem;
     color: #4e4e4e;
     display: flex;
-    font: 600 0.833rem /1.23 Inter,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font: 600 0.833rem /1.23 Inter, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     gap: 0.25rem;
     height: 1.75rem;
     justify-content: center;
@@ -224,11 +228,11 @@
     position: relative;
 }
 
-    .header-theme__button-wrap:hover {
-        background-color: #cdcdcd;
-    }
+.header-theme__button-wrap:hover {
+    background-color: #cdcdcd;
+}
 
-.header-nav-container__auth {
+.header__auth {
     justify-content: flex-end;
 }
 
@@ -250,7 +254,7 @@
     align-items: center;
     text-align: center;
     padding: 0.25rem;
-    font: 600 0.833rem /1.23 Inter,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font: 600 0.833rem /1.23 Inter, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
 .auth-container__signup-button {
@@ -262,7 +266,7 @@
     display: flex;
     gap: 0.25rem;
     height: 2rem;
-    font: 600 0.833rem /1.23 Inter,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font: 600 0.833rem /1.23 Inter, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     justify-content: center;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -280,6 +284,12 @@
     align-items: center;
 }
 
+.breadcrumbs__container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
 .breadcrumbs-nav__list {
     list-style: none;
     display: flex;
@@ -290,26 +300,26 @@
 }
 
 .breadcrumbs-list__item {
-    display: list-item;    
+    display: list-item;
 }
 
-.breadcrumbs-list__link{
+.breadcrumbs-list__link {
     text-decoration: none;
 }
 
-    .breadcrumbs-list__link:after {
-        box-sizing: content-box;
-        content: "";
-        background-color: #b3b3b3;
-        width: 12px;
-        height: 12px;
-        -webkit-mask-box-image: url(../img/chevron.svg);
-        -webkit-mask-size: 12px;
-        margin-right: 0.5rem;
-        transform: rotate(-90deg);
-        display: inline-block;
-        vertical-align: middle;
-    }
+.breadcrumbs-list__link:after {
+    box-sizing: content-box;
+    content: "";
+    background-color: #b3b3b3;
+    width: 12px;
+    height: 12px;
+    -webkit-mask-box-image: url(../img/chevron.svg);
+    -webkit-mask-size: 12px;
+    margin-right: 0.5rem;
+    transform: rotate(-90deg);
+    display: inline-block;
+    vertical-align: middle;
+}
 
 .breadcrumbs-list__link-current {
     text-decoration: none;
@@ -351,7 +361,7 @@
     border-radius: 0.25rem;
     color: #4e4e4e;
     display: flex;
-    font: 600 0.833rem /1.23 Inter,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font: 600 0.833rem /1.23 Inter, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     gap: 0.25rem;
     height: 1.75rem;
     justify-content: center;
@@ -359,40 +369,45 @@
     padding-right: 0.25rem;
     position: relative;
 }
-    .breadcrumbs-actions__button-wrap:hover {
-        background-color: #cdcdcd;
-    }
 
-    .breadcrumbs-actions__button-wrap:after {
-        box-sizing: content-box;
-        content: "";
-        background-color: #b3b3b3;
-        width: 1rem;
-        height: 1rem;
-        -webkit-mask-box-image: url(../img/chevron.svg);
-        -webkit-mask-size: 1rem;
-        margin-left: auto;
-        display: inline-block;
-        vertical-align: middle;
-    }
+.breadcrumbs-actions__button-wrap:hover {
+    background-color: #cdcdcd;
+}
 
-.header__notes {
+.breadcrumbs-actions__button-wrap:after {
+    box-sizing: content-box;
+    content: "";
+    background-color: #b3b3b3;
+    width: 1rem;
+    height: 1rem;
+    -webkit-mask-box-image: url(../img/chevron.svg);
+    -webkit-mask-size: 1rem;
+    margin-left: auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.main__notes {
     margin-left: auto;
     margin-right: auto;
     padding-left: 1rem;
     padding-right: 1rem;
-    width: 100%;    
+    width: 100%;
+}
+
+.main__content {
+    display: flex;
 }
 
 .header-notes-container__note {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0,133,242,.1);
+    background-color: rgba(0, 133, 242, .1);
     border: 1px solid #cdcdcd;
     border-left: 4px solid #0085f2;
     border-radius: 0.25rem;
-    box-shadow: rgba(43,42,51,0.05);
+    box-shadow: rgba(43, 42, 51, 0.05);
     margin: 1rem 1rem;
     padding: 1rem 1rem 1rem 3rem;
     position: relative;

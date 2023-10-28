@@ -2,7 +2,7 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>Frontend course Ex.2 BEM</title>
 
     <link rel="stylesheet" href=".\assets\css2\wrapper.css">
@@ -11,92 +11,97 @@
     <link rel="stylesheet" href=".\assets\css2\footer.css">
 </head>
 <body>
-    <div class="wrapper">
-        <header class="header wrapper__header">
+<div class="wrapper">
+    <div class="header-banner wrapper__banner">
+        In my heart of hearts, in my most inner, true thoughts and <a href="">feelings</a>
+    </div>
 
-            <div class="header-banner header__banner">
-                <span class="header__banner-text">
-                    In my heart of hearts, in my most inner, true thoughts and <a href="">feelings</a>
-                </span>
-            </div>
+    <header class="wrapper__header">
+        <div class="header">
+            <div class="container header__container">
+                <div class="row row--centered-y">
+                    <div class="header-logo header__logo">
+                        <a class="header-logo__logo-link" href="https://www.itschool.pro" target="_blank"
+                           rel="noopener noreferrer">
+                            <img class="header-logo__logo-img" src="./assets/img/codemasters.png">
+                        </a>
+                    </div>
 
-            <div class="header-nav-container header__navigation">
-
-                <div class="header-logo header-nav-container__logo">
-                    <a class="header-logo__logo-link" href="https://www.itschool.pro" target="_blank" rel="noopener noreferrer">
-                        <img class="header-logo__logo-img" src="./assets/img/codemasters.png">
-                    </a>
+                    <nav class="header-nav header__nav">
+                        <ul class="header-nav__list">
+                            <li class="header-nav__list-option">
+                                <a class="header-nav__option-link" href="">
+                                    <span class="header-nav__option-button">Reference</span>
+                                </a>
+                            </li>
+                            <li class="header-nav__list-option">
+                                <a class="header-nav__option-link" href="">
+                                    <span class="header-nav__option-button">Guides</span>
+                                </a>
+                            </li>
+                            <li class="header-nav__list-option">
+                                <a class="header-nav__option-link" href="">
+                                    <span class="header-nav__option-button">Blog</span>
+                                </a>
+                            </li>
+                            <li class="header-nav__list-option">
+                                <a class="header-nav__option-link" href="">
+                                    <span class="header-nav__option-button">AI Help</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
 
-                <nav class="header-nav header-nav-container__nav">
-                    <ul class="header-nav__list">
-                        <li class="header-nav__list-option">
-                            <a class="header-nav__option-link" href="">
-                                <span class="header-nav__option-button">Reference</span>
-                            </a>
-                        </li>
-                        <li class="header-nav__list-option">
-                            <a class="header-nav__option-link" href="">
-                                <span class="header-nav__option-button">Guides</span>
-                            </a>
-                        </li>
-                        <li class="header-nav__list-option">
-                            <a class="header-nav__option-link" href="">
-                                <span class="header-nav__option-button">Blog</span>
-                            </a>
-                        </li>
-                        <li class="header-nav__list-option">
-                            <a class="header-nav__option-link" href="">
-                                <span class="header-nav__option-button">AI Help</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                <div class="row row--centered-y">
+                    <div class="header-theme header__theme">
+                        <button class="header-theme__theme-button" type="button">
+                            <span class="header-theme__button-wrap">
+                                <span class="header-theme__icon-theme"></span>
+                                Theme
+                                <!--<span class="nav-search-form__visually-hidden">Clear search input</span>-->
+                            </span>
+                        </button>
+                    </div>
 
-                <div class="header-theme header-nav-container__theme">
-                    <button class="header-theme__theme-button" type="button">
-                        <span class="header-theme__button-wrap">
-                            <span class="header-theme__icon-theme"></span>
-                            Theme
-                            <!--<span class="nav-search-form__visually-hidden">Clear search input</span>-->
-                        </span>
-                    </button>
-                </div>
-
-                <div class="nav-search header-nav-container__search">
-                    <form class="nav-search-form nav-search__form">
-                        <input class="nav-search-form__search-box" type="search" name="q" placeholder="" required="" value="">
-                        <button class="nav-search-form__cancel-button" type="button">
+                    <div class="nav-search header__search">
+                        <form class="nav-search-form nav-search__form">
+                            <input class="nav-search-form__search-box" type="search" name="q" placeholder="" required=""
+                                   value="">
+                            <button class="nav-search-form__cancel-button" type="button">
                             <span class="nav-search-form__button-wrap">
                                 <span class="nav-search-form__icon-cancel "></span>
                                 <!--<span class="nav-search-form__visually-hidden">Clear search input</span>-->
                             </span>
-                        </button>
-                        <button class="nav-search-form__search-button" type="submit">
+                            </button>
+                            <button class="nav-search-form__search-button" type="submit">
                             <span class="nav-search-form__button-wrap">
                                 <span class="nav-search-form__icon-search"></span>
                                 <!--<span class="nav-search-form__visually-hidden">Search</span>-->
                             </span>
-                        </button>
-                    </form>
-                </div>
+                            </button>
+                        </form>
+                    </div>
 
-                <div class="header-auth header-nav-container__auth">
-                    <ul class="auth-container header-auth__auth-container">
-                        <li class="auth-container__option">
-                            <a class="auth-container__login-link" href="">Log in</a>
-                        </li>
-                        <li class="auth-container__option">
-                            <a class="auth-container__login-link" href="">
-                                <span class="auth-container__signup-button">Sign up for free</span>
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="header-auth header__auth">
+                        <ul class="auth-container header-auth__auth-container">
+                            <li class="auth-container__option">
+                                <a class="auth-container__login-link" href="">Log in</a>
+                            </li>
+                            <li class="auth-container__option">
+                                <a class="auth-container__login-link" href="">
+                                    <span class="auth-container__signup-button">Sign up for free</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="header-breadcrumbs-container header__breadcrumbs">
-                <nav class="breadcrumbs-nav header-breadcrumbs-container__navigation">
+        <div class="breadcrumbs header__breadcrumbs">
+            <div class="container breadcrumbs__container">
+                <nav class="breadcrumbs-nav row row--centered-y">
                     <ol class="breadcrumbs-list breadcrumbs-nav__list">
                         <li class="breadcrumbs-list__item">
                             <a class="breadcrumbs-list__link" href="">
@@ -115,30 +120,33 @@
                         </li>
                     </ol>
                 </nav>
-                <div class="breadcrumbs-actions header-breadcrumbs-container__actions">
+                <div class="breadcrumbs-actions">
                     <button class="breadcrumbs-actions__button" type="button">
                         <span class="breadcrumbs-actions__button-wrap">
-                            <span class="breadcrumbs-actions__local-icon"></span>English
+                            <span class="breadcrumbs-actions__local-icon"></span>
+                            English
                         </span>
                     </button>
                 </div>
             </div>
 
-            <div class="header-notes-container header__notes">
-                <div class="header-note header-notes-container__note">
-                    <a class="header-note__link" href="">
-                        <span class="header-note__text">When clouds appear, wise men put on their cloaks; When great leaves fall, the winter is at hand; When the sun sets, who doth not look for night?</span>
-                    </a>
-                </div>
+        </div>
+    </header>
+
+    <main class="main wrapper__main">
+        <div class="header-notes-container main__notes">
+            <div class="header-note header-notes-container__note">
+                <a class="header-note__link" href="">
+                    <span class="header-note__text">When clouds appear, wise men put on their cloaks; When great leaves fall, the winter is at hand; When the sun sets, who doth not look for night?</span>
+                </a>
             </div>
-        </header>
+        </div>
 
-        <main class="main wrapper__main">
-
+        <div class="main__content">
             <aside class="side-nav main__side-nav">
-
                 <form class="nav-search-form side-nav__form">
-                    <input class="nav-search-form__search-box" type="search" name="q" placeholder="" required="" value="">
+                    <input class="nav-search-form__search-box" type="search" name="q" placeholder="" required=""
+                           value="">
                     <button class="nav-search-form__cancel-button" type="button">
                         <span class="nav-search-form__button-wrap">
                             <span class="nav-search-form__icon-cancel "></span>
@@ -311,8 +319,8 @@
                             Than keep a corner in the thing I love<br>
                             For others' uses.<br>
                         </p>
-                    </section> 
-                    <section class="article-section article__section" id="section2"> 
+                    </section>
+                    <section class="article-section article__section" id="section2">
                         <h3 class="article-section__header">Sonnet 2</h3>
                         <p class="article-section__text">
                             When forty winters shall besiege thy brow,<br>
@@ -366,121 +374,129 @@
                     </ul>
                 </nav>
             </article>
+        </div>
+    </main>
 
-        </main>
+    <footer class="footer wrapper__footer">
 
-        <footer class="footer wrapper__footer">
+        <div class="footer-container footer__container">
+            <div class="footer-logo-col footer-container__logo-col">
 
-            <div class="footer-container footer__container">
-                <div class="footer-logo-col footer-container__logo-col">
-                    
-                    <a class="footer-logo-col__logo-link" href="https://www.itschool.pro" target="_blank" rel="noopener noreferrer">
-                        <img class="footer-logo-col__logo-img" src="./assets/img/codemasters2.png">
-                    </a>
-
-                    <p class="footer-logo-col__text">Your blueprint for a better bla-bla-bla.</p>
-                    <ul class="social-icons footer-logo-col__social-icons">
-                        <li class="social-icons__option">
-                            <a class="social-icons__twitter" href="">                                
-                            </a>
-                        </li>
-                        <li class="social-icons__option">
-                            <a class="social-icons__github-mark-small" href="">
-                            </a>
-                        </li>
-                        <li class="social-icons__option">
-                            <a class="social-icons__feed" href="" target="_blank">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer-col footer-container__col-1">
-                    <h2 class="footer-col__header">School</h2>
-                    <ul class="footer-col-nav-list footer-col__nav-list">
-                        <li class="footer-col-nav-list__option">
-                            <a class="footer-col-nav-list__option-link" href="https://www.itschool.pro/about">About</a>
-                        </li>
-                        <li class="footer-col-nav-list__option">
-                            <a class="footer-col-nav-list__option-link" href="https://www.itschool.pro/#course">Courses</a>
-                        </li>
-                        <li class="footer-col-nav-list__option">
-                            <a class="footer-col-nav-list__option-link" href="https://www.itschoolsaransk.ru/work">Career</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer-col footer-container__col-2">
-                    <h2 class="footer-col__header">Info</h2>
-                    <ul class="footer-col-nav-list footer-col__nav-list">
-                        <li class="footer-col-nav-list__option">
-                            <a class="footer-col-nav-list__option-link" href="https://www.itschool.pro/news">News</a>
-                        </li>
-                        <li class="footer-col-nav-list__option">
-                            <a class="footer-col-nav-list__option-link" href="https://www.itschool.pro/reviews">Feedbacks</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer-col footer-container__col-3">
-                    <h2 class="footer-col__header">Contact us</h2>
-                    <ul class="footer-col-nav-list footer-col__nav-list">
-                        <li class="footer-col-nav-list__option">
-                            <a class="footer-col-nav-list__option-link" href="https://www.itschool.pro/contacts">Contacts</a>
-                        </li>
-                        <li class="footer-col-nav-list__option">
-                            <a class="footer-col-nav-list__option-link" href="tel://+79179907100">+79179907100</a>
-                        </li>
-                        <li class="footer-col-nav-list__option">
-                            <a class="footer-col-nav-list__option-link" href="tel://+7 (8342) 23 08 07">+7 (8342) 23 08 07</a>
-                        </li>
-                        <li class="footer-col-nav-list__option">
-                            <a class="footer-col-nav-list__option-link" href="mailto://info@itschoolsaransk.ru">info@itschoolsaransk.ru</a>
-                        </li>
-                    </ul>
-                </div>                
-            </div>
-
-            <div class="footer-about footer__about">
-                <a class="footer-about__logo-link" href="https://www.itschool.pro" target="_blank" rel="noopener noreferrer">
-                    <img class="footer-about__logo-img" src="./assets/img/codemasters2.png">
+                <a class="footer-logo-col__logo-link" href="https://www.itschool.pro" target="_blank"
+                   rel="noopener noreferrer">
+                    <img class="footer-logo-col__logo-img" src="./assets/img/codemasters2.png">
                 </a>
-                <ul class="footer-about-list footer-about__list">
-                    <li class="footer-about-list__option">
-                        <a href="" class="footer-about-list__option-link" target="_blank" rel="noopener noreferrer">
-                            Website Privacy Notice
+
+                <p class="footer-logo-col__text">Your blueprint for a better bla-bla-bla.</p>
+                <ul class="social-icons footer-logo-col__social-icons">
+                    <li class="social-icons__option">
+                        <a class="social-icons__twitter" href="">
                         </a>
                     </li>
-                    <li class="footer-about-list__option">
-                        <a href="" target="_blank" rel="noopener noreferrer">
-                            Cookies
+                    <li class="social-icons__option">
+                        <a class="social-icons__github-mark-small" href="">
                         </a>
                     </li>
-                    <li class="footer-about-list__option">
-                        <a href="" target="_blank" rel="noopener noreferrer">
-                            Legal
-                        </a>
-                    </li>
-                    <li class="footer-about-list__option">
-                        <a href="" target="_blank" rel="noopener noreferrer">
-                            Community Participation Guidelines
+                    <li class="social-icons__option">
+                        <a class="social-icons__feed" href="" target="_blank">
                         </a>
                     </li>
                 </ul>
             </div>
 
-            <div class="footer-legal footer__legal">
-                <p id="license" class="footer-legal__text">
-                    Visit
-                    <a href="https://www.itschool.pro" target="_blank" rel="noopener noreferrer">Codemasters International IT School</a>
-                    <!-- -->not-for-profit some legal bla-bla-bla, the<!-- -->
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.itschool.pro">IT School Foundation</a>
-                    .<br>Portions of this content are ©<!-- -->2023<!-- --> by individual school student. Content available under<!-- --> <a href="/ru/docs/MDN/Writing_guidelines/Attrib_copyright_license">a Creative Commons license</a>.
-                </p>
+            <div class="footer-col footer-container__col-1">
+                <h2 class="footer-col__header">School</h2>
+                <ul class="footer-col-nav-list footer-col__nav-list">
+                    <li class="footer-col-nav-list__option">
+                        <a class="footer-col-nav-list__option-link" href="https://www.itschool.pro/about">About</a>
+                    </li>
+                    <li class="footer-col-nav-list__option">
+                        <a class="footer-col-nav-list__option-link" href="https://www.itschool.pro/#course">Courses</a>
+                    </li>
+                    <li class="footer-col-nav-list__option">
+                        <a class="footer-col-nav-list__option-link"
+                           href="https://www.itschoolsaransk.ru/work">Career</a>
+                    </li>
+                </ul>
             </div>
 
-        </footer>
+            <div class="footer-col footer-container__col-2">
+                <h2 class="footer-col__header">Info</h2>
+                <ul class="footer-col-nav-list footer-col__nav-list">
+                    <li class="footer-col-nav-list__option">
+                        <a class="footer-col-nav-list__option-link" href="https://www.itschool.pro/news">News</a>
+                    </li>
+                    <li class="footer-col-nav-list__option">
+                        <a class="footer-col-nav-list__option-link"
+                           href="https://www.itschool.pro/reviews">Feedbacks</a>
+                    </li>
+                </ul>
+            </div>
 
-    </div>
+            <div class="footer-col footer-container__col-3">
+                <h2 class="footer-col__header">Contact us</h2>
+                <ul class="footer-col-nav-list footer-col__nav-list">
+                    <li class="footer-col-nav-list__option">
+                        <a class="footer-col-nav-list__option-link"
+                           href="https://www.itschool.pro/contacts">Contacts</a>
+                    </li>
+                    <li class="footer-col-nav-list__option">
+                        <a class="footer-col-nav-list__option-link" href="tel://+79179907100">+79179907100</a>
+                    </li>
+                    <li class="footer-col-nav-list__option">
+                        <a class="footer-col-nav-list__option-link" href="tel://+7 (8342) 23 08 07">+7 (8342) 23 08
+                            07</a>
+                    </li>
+                    <li class="footer-col-nav-list__option">
+                        <a class="footer-col-nav-list__option-link" href="mailto://info@itschoolsaransk.ru">info@itschoolsaransk.ru</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-about footer__about">
+            <a class="footer-about__logo-link" href="https://www.itschool.pro" target="_blank"
+               rel="noopener noreferrer">
+                <img class="footer-about__logo-img" src="./assets/img/codemasters2.png">
+            </a>
+            <ul class="footer-about-list footer-about__list">
+                <li class="footer-about-list__option">
+                    <a href="" class="footer-about-list__option-link" target="_blank" rel="noopener noreferrer">
+                        Website Privacy Notice
+                    </a>
+                </li>
+                <li class="footer-about-list__option">
+                    <a href="" target="_blank" rel="noopener noreferrer">
+                        Cookies
+                    </a>
+                </li>
+                <li class="footer-about-list__option">
+                    <a href="" target="_blank" rel="noopener noreferrer">
+                        Legal
+                    </a>
+                </li>
+                <li class="footer-about-list__option">
+                    <a href="" target="_blank" rel="noopener noreferrer">
+                        Community Participation Guidelines
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer-legal footer__legal">
+            <p id="license" class="footer-legal__text">
+                Visit
+                <a href="https://www.itschool.pro" target="_blank" rel="noopener noreferrer">Codemasters International
+                    IT School</a>
+                <!-- -->not-for-profit some legal bla-bla-bla, the<!-- -->
+                <a target="_blank" rel="noopener noreferrer" href="https://www.itschool.pro">IT School Foundation</a>
+                .<br>Portions of this content are ©<!-- --> 2023<!-- --> by individual school student. Content available
+                under<!-- --> <a href="/ru/docs/MDN/Writing_guidelines/Attrib_copyright_license">a Creative Commons
+                license</a>.
+            </p>
+        </div>
+
+    </footer>
+</div>
 </body>
 </html>
