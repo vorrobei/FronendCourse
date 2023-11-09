@@ -1,0 +1,38 @@
+﻿.wrapper {
+    font-size: 16px;
+    font-family: BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.wrapper__banner {
+    display: flex;
+    height: 3.375rem;
+    margin-bottom: 1px;
+    border-bottom: 1px solid #cdcdcd;
+    background-color: #f9f9fb;
+    font-size: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px){
+    .wrapper__banner{
+        display: none;   
+    }     
+}
+
+.wrapper__header {
+    position: sticky;
+    top: 0;
+    width: 100%;   
+    z-index: 9999;
+}
+
+.wrapper__footer a {
+    color: #4e4e4e;
+}
+
+.wrapper__footer {
+    background-color: #f9f9fb;
+    padding: 2rem 1rem;
+    position: relative;
+}

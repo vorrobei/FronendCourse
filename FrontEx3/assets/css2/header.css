@@ -1,0 +1,626 @@
+﻿.header__container {    
+    border-bottom: 1px solid #cdcdcd;
+    width: 100%;
+    position: relative;   
+    background-color: #fff;
+    z-index: 700;    
+}
+
+.header__top-bar {
+    gap: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;    
+    align-items: center;    
+    height: 4rem;    
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;    
+}
+
+.header__logo {
+    align-items: center;
+    display: flex;
+    flex: 1 1;
+    justify-content: space-between;
+}
+
+.header-logo__logo-img {
+    width: 170px;
+    height: 50px;
+}
+
+.header__menu {
+    border-radius: 0.25rem;    
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    text-decoration: none;
+    height: 2rem;
+    appearance: none;
+    background: none;
+    border: none;     
+}   
+
+.header-menu__button-wrap {
+    align-items: center;
+    background-color: #00000000;
+    border: 1px solid #00000000;
+    border-radius: 0.25rem;
+    color: #4e4e4e;
+    display: flex;
+    font: 600 0.833rem /1.23 Inter, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    gap: 0.25rem;
+    height: 2rem;
+    justify-content: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    position: relative;
+}
+
+.header-menu__icon-menu{
+    background-color: #4e4e4e;
+    display: inline-block;
+    flex-shrink: 0;
+    height: 1rem;
+    -webkit-mask-position: center;
+    -webkit-mask-box-image: url(../img/menu.svg);
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    vertical-align: middle;
+    width: 1rem;
+}
+
+.header__main {
+    display: none;
+    justify-content: space-between;
+    padding: 0;
+    width: 100%;
+}
+
+@media screen and (min-width: 992px) {
+    .header__main {
+        gap: 0.5rem;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;        
+    } 
+
+    .header__menu {
+        display: none;
+    } 
+}
+
+.header-main__nav {
+    margin-right: auto;
+    order: 0;
+    width: max-content;
+}
+
+.header-nav__list {
+    list-style: none;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto 0 0;
+    padding: 0;
+}
+
+@media screen and (min-width: 1200px) {
+    .header-nav__list {
+        gap: 1rem;        
+    }
+}
+
+.header-nav__list-option {
+    display: list-item;
+}
+
+.header-nav__option-link {
+    text-decoration: none;
+}
+
+.header-nav__option-button {
+    align-items: center;
+    background-color: #00000000;
+    border: 1px solid #00000000;
+    border-radius: 0.25rem;
+    color: #1b1b1b;
+    display: flex;
+    gap: 0.25rem;
+    height: 2.5rem;
+    justify-content: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    position: relative;
+}
+
+.header-nav__option-button:hover {
+    background-color: #ef8f8f;
+}
+
+.header-main__theme {
+    padding: 0;
+}
+
+.header-theme__theme-button {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    background: none;
+    border: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.header-theme__icon-theme {
+    background-color: #4e4e4e;
+    display: inline-block;
+    flex-shrink: 0;
+    height: 1rem;
+    -webkit-mask-position: center;
+    -webkit-mask-box-image: url(../img/theme-os-default.svg);
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    vertical-align: middle;
+    width: 1rem;
+}
+
+.header-theme__button-wrap {
+    align-items: center;
+    background-color: #00000000;
+    border: 1px solid #00000000;
+    border-radius: 0.25rem;
+    color: #4e4e4e;
+    display: flex;
+    font: 600 0.833rem /1.23 Inter, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    gap: 0.25rem;
+    height: 1.75rem;
+    justify-content: center;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    position: relative;
+}
+
+.header-theme__button-wrap:hover {
+    background-color: #cdcdcd;
+}
+
+.nav-search__form {
+    align-items: center;
+    display: flex;
+    gap: 0.5rem;    
+    max-width: 8rem;
+    position: relative;
+    width: 100%;
+}
+
+.nav-search-form__search-box {
+    -webkit-appearance: none;
+    background-color: #fff;
+    border: 1px solid #cdcdcd;
+    border-radius: 100px;
+    color: #1b1b1b;
+    height: 2rem;
+    min-width: 5rem;
+    padding-left: 1rem;
+    padding-right: 2rem;
+    width: 100%;
+}
+
+.nav-search-form__search-box::-webkit-search-cancel-button {
+    display: none;
+}
+
+.nav-search-form__cancel-button {
+    position: absolute;
+    right: 2.5rem;
+    top: 0.3rem;
+    width: 1.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    text-decoration: none;
+    appearance: none;
+    background: none;
+    border: none;
+}
+
+.nav-search-form__search-button {
+    position: absolute;
+    right: 0.75rem;
+    top: 0.3rem;
+    width: 1.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    text-decoration: none;
+    appearance: none;
+    background: none;
+    border: none;
+}
+
+.nav-search-form__button-wrap {
+    align-items: center;
+    background-color: #00000000;
+    border: 1px solid #00000000;
+    border-radius: 0.25rem;
+    color: #b3b3b3;
+    display: flex;
+    font: 600 0.833rem /1.23 Inter, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    gap: 0.25rem;
+    height: 1.25rem;
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+}
+
+.nav-search-form__button-wrap:hover {
+    background-color: #cdcdcd;
+}
+
+.nav-search-form__icon-cancel {
+    background-color: #b3b3b3;
+    display: inline-block;
+    flex-shrink: 0;
+    height: 1rem;
+    -webkit-mask-position: center;
+    -webkit-mask-box-image: url(../img/cancel.svg);
+    -webkit-mask-repeat: no-repeat;
+    vertical-align: middle;
+    width: 1rem;
+}
+
+.nav-search-form__icon-search {
+    background-color: #b3b3b3;
+    display: inline-block;
+    flex-shrink: 0;
+    height: 1rem;
+    -webkit-mask-position: center;
+    -webkit-mask-box-image: url(../img/search.svg);
+    -webkit-mask-repeat: no-repeat;
+    vertical-align: middle;
+    width: 1rem;
+}
+
+.header-main__auth {
+    justify-content: flex-end;
+}
+
+.header-auth__auth-container {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 1rem
+}
+
+@media screen and (min-width: 992px) {
+    .header-auth__auth-container {
+        justify-content: flex-end;
+    }
+}
+
+.auth-container__option {
+    display: list-item;
+}
+
+.auth-container__login-link {
+    display: flex;
+    text-decoration: none;
+    height: 2rem;
+    align-items: center;
+    text-align: center;
+    font: 600 0.833rem /1.23 Inter, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.auth-container__signup-button {
+    align-items: center;
+    background-color: #1b1b1b;
+    border: 1px solid #696969;
+    border-radius: 0.25rem;
+    color: #fff;
+    display: flex;
+    gap: 0.25rem;
+    height: 2rem;
+    font: 600 0.833rem /1.23 Inter, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    justify-content: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    position: relative;
+}
+
+.header__breadcrumbs {
+    align-items: center;
+    border-bottom: 1px solid #cdcdcd;
+    background-color: #f9f9fb;
+    margin: 0;
+    min-height: 2rem;
+    padding: 0;
+    width: 100%;
+    align-items: center;
+}
+
+.breadcrumbs__container {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 100%;
+    align-items: center;
+    min-height: 2rem;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;    
+}
+
+.breadcrumbs__nav {
+    margin-right: auto;
+}
+
+.breadcrumbs-nav__list {
+    list-style: none;
+    display: flex;
+    color: #4e4e4e;
+    padding: 0;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.breadcrumbs-list__item {
+    display: list-item;
+}
+
+.breadcrumbs-list__link {
+    text-decoration: none;
+}
+
+.breadcrumbs-list__link:after {
+    box-sizing: content-box;
+    content: "";
+    background-color: #b3b3b3;
+    width: 12px;
+    height: 12px;
+    -webkit-mask-box-image: url(../img/chevron.svg);
+    -webkit-mask-size: 12px;
+    margin-right: 0.5rem;
+    transform: rotate(-90deg);
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.breadcrumbs-list__link-current {
+    text-decoration: none;
+}
+
+.breadcrumbs-list__link-text {
+    margin-right: 0.5rem;
+}
+
+.breadcrumbs__actions {
+    display: none;
+}
+
+.breadcrumbs-actions__button {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    background: none;
+    border: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.breadcrumbs-actions__local-icon {
+    background-color: #4e4e4e;
+    display: inline-block;
+    flex-shrink: 0;
+    height: 1rem;
+    -webkit-mask-position: center;
+    -webkit-mask-box-image: url(../img/language.svg);
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    vertical-align: middle;
+    width: 1rem;
+}
+
+.breadcrumbs-actions__button-wrap {
+    align-items: center;
+    background-color: #00000000;
+    border: 1px solid #00000000;
+    border-radius: 0.25rem;
+    color: #4e4e4e;
+    display: flex;
+    font: 600 0.833rem /1.23 Inter, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    gap: 0.25rem;
+    height: 1.75rem;
+    justify-content: center;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    position: relative;
+}
+
+.breadcrumbs-actions__button-wrap:hover {
+    background-color: #cdcdcd;
+}
+
+.breadcrumbs-actions__button-wrap:after {
+    box-sizing: content-box;
+    content: "";
+    background-color: #b3b3b3;
+    width: 1rem;
+    height: 1rem;
+    -webkit-mask-box-image: url(../img/chevron.svg);
+    -webkit-mask-size: 1rem;
+    margin-left: auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.breadcrumbs__actions-mini {
+    display: block;
+}
+
+.breadcrumbs-actions-mini__button {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    background: none;
+    border: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.breadcrumbs-actions-mini__button-wrap {
+    align-items: center;
+    background-color: #00000000;
+    border: 1px solid #00000000;
+    border-radius: 0.25rem;
+    color: #4e4e4e;
+    display: flex;
+    font: 600 0.833rem /1.23 Inter, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    gap: 0.25rem;
+    height: 1.75rem;
+    justify-content: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    position: relative;
+}
+
+.breadcrumbs-actions-mini__button-wrap:hover {
+    background-color: #cdcdcd;
+}
+
+.breadcrumbs-actions-mini__icon {
+    background-color: #4e4e4e;
+    display: inline-block;
+    flex-shrink: 0;
+    height: 1rem;
+    -webkit-mask-position: center;
+    -webkit-mask-box-image: url(../img/ellipses.svg);
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    vertical-align: middle;
+    width: 1rem;
+}
+
+.breadcrumbs__sidebar {
+    display: block;
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    margin: 0 0 0 -1rem;
+}
+
+.breadcrumbs-sidebar__button {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    background: none;
+    border: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.breadcrumbs-sidebar__button-wrap {
+    align-items: center;
+    background-color: #00000000;
+    border: 1px solid #00000000;
+    border-radius: 0.25rem;
+    color: #4e4e4e;
+    display: flex;
+    font: 600 0.833rem /1.23 Inter, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    gap: 0.25rem;
+    height: 1.75rem;
+    justify-content: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    position: relative;
+}
+
+.breadcrumbs-sidebar__button-wrap:hover {
+    background-color: #cdcdcd;
+}
+
+.breadcrumbs-sidebar__sidebar-icon {
+    background-color: #4e4e4e;
+    display: inline-block;
+    flex-shrink: 0;
+    height: 1rem;
+    -webkit-mask-position: center;
+    -webkit-mask-box-image: url(../img/sidebar.svg);
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    vertical-align: middle;
+    width: 1rem;
+}
+
+.header__notes {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 1440px;
+}
+
+.notes__container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: #4e4e4e;
+    background-color: rgba(0, 133, 242, .1);
+    border: 1px solid #cdcdcd;
+    border-left: 4px solid #0085f2;
+    border-radius: 0.25rem;
+    box-shadow: rgba(43, 42, 51, 0.05);
+    margin: 1rem 0;
+    padding: 1rem 1rem 1rem 3rem;
+    position: relative;
+}
+
+.notes__link {
+    text-decoration: none;
+}
+
+.notes__container:before {
+    background-color: #0085f2;
+    content: "";
+    display: block;
+    height: 1rem;
+    left: 1rem;
+    -webkit-mask-box-image: url(../img/note-info.svg);
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    position: relative;
+    position: absolute;
+    top: 1.25rem;
+    width: 1rem;
+}
+
+@media screen and (min-width: 769px){
+    .breadcrumbs__actions {
+        display: block;
+    }
+
+    .breadcrumbs__sidebar {
+        display: none;
+    }
+
+    .breadcrumbs__actions-mini {
+        display: none;
+    }    
+}

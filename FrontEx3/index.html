@@ -1,0 +1,560 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <title>Frontend course Ex.3 Adaptive Layouts</title>
+
+    <link rel="stylesheet" href="./assets/css2/wrapper.css">
+    <link rel="stylesheet" href="./assets/css2/header.css">
+    <link rel="stylesheet" href="./assets/css2/main.css">    
+    <link rel="stylesheet" href="./assets/css2/footer.css">        
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+<div class="wrapper">
+
+    <div class="header-banner wrapper__banner">
+        <span class="wrapper__banner-text">In my heart of hearts, in my most inner, true thoughts and <a href="">feelings</a><span>
+    </div>
+
+    <header class="header wrapper__header">        
+
+        <div class="header-container header__container">
+
+            <div class="header__top-bar">
+
+                <div class="header-logo header__logo">
+                    <a class="header-logo__logo-link" href="https://www.itschool.pro">
+                        <img class="header-logo__logo-img" src="./assets/img/codemasters.png">
+                    </a>
+                    <button class="header-menu header__menu" type="button">
+                        <span class="header-menu__button-wrap">
+                            <span class="header-menu__icon-menu"></span>                        
+                        </span>
+                    </button>
+                </div>
+                <div class="header-main header__main">                    
+                    <nav class="header-nav header-main__nav">
+                        <ul class="header-nav__list">
+                            <li class="header-nav__list-option">
+                                <a class="header-nav__option-link" href="">
+                                    <span class="header-nav__option-button">Reference</span>
+                                </a>
+                            </li>
+                            <li class="header-nav__list-option">
+                                <a class="header-nav__option-link" href="">
+                                    <span class="header-nav__option-button">Guides</span>
+                                </a>
+                            </li>
+                            <li class="header-nav__list-option">
+                                <a class="header-nav__option-link" href="">
+                                    <span class="header-nav__option-button">Blog</span>
+                                </a>
+                            </li>
+                            <li class="header-nav__list-option">
+                                <a class="header-nav__option-link" href="">
+                                    <span class="header-nav__option-button">AI Help</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="header-theme header-main__theme">
+                        <button class="header-theme__theme-button" type="button">
+                            <span class="header-theme__button-wrap">
+                                <span class="header-theme__icon-theme"></span>
+                                Theme                            
+                            </span>
+                        </button>
+                    </div>
+                    <div class="nav-search header-main__search">
+                        <form class="nav-search-form nav-search__form">
+                            <input class="nav-search-form__search-box" type="search" name="q" placeholder="" required=""
+                                value="">
+                            <button class="nav-search-form__cancel-button" type="button">
+                            <span class="nav-search-form__button-wrap">
+                                <span class="nav-search-form__icon-cancel "></span>                            
+                            </span>
+                            </button>
+                            <button class="nav-search-form__search-button" type="submit">
+                            <span class="nav-search-form__button-wrap">
+                                <span class="nav-search-form__icon-search"></span>                            
+                            </span>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="header-auth header-main__auth">
+                        <ul class="auth-container header-auth__auth-container">
+                            <li class="auth-container__option">
+                                <a class="auth-container__login-link" href="">Log in</a>
+                            </li>
+                            <li class="auth-container__option">
+                                <a class="auth-container__login-link" href="">
+                                    <span class="auth-container__signup-button">Sign up for free</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="breadcrumbs header__breadcrumbs">
+            <div class="breadcrumbs__container">
+                <div class="breadcrumbs-sidebar breadcrumbs__sidebar">
+                    <button class="breadcrumbs-sidebar__button" type="button">
+                        <span class="breadcrumbs-sidebar__button-wrap">
+                            <span class="breadcrumbs-sidebar__sidebar-icon"></span>                        
+                        </span>
+                    </button>
+                </div>            
+                <nav class="breadcrumbs-nav breadcrumbs__nav">
+                    <ol class="breadcrumbs-list breadcrumbs-nav__list">
+                        <li class="breadcrumbs-list__item">
+                            <a class="breadcrumbs-list__link" href="">
+                                <span class="breadcrumbs-list__link-text">Root node</span>
+                            </a>
+                        </li>
+                        <li class="breadcrumbs-list__item">
+                            <a class="breadcrumbs-list__link" href="">
+                                <span class="breadcrumbs-list__link-text">Middle node</span>
+                            </a>
+                        </li>
+                        <li class="breadcrumbs-list__item">
+                            <a class="breadcrumbs-list__link-current" href="">
+                                <span class="breadcrumbs-list__link-text">Current node</span>
+                            </a>
+                        </li>
+                    </ol>
+                </nav>
+                <div class="breadcrumbs-actions breadcrumbs__actions">
+                    <button class="breadcrumbs-actions__button" type="button">
+                        <span class="breadcrumbs-actions__button-wrap">
+                            <span class="breadcrumbs-actions__local-icon"></span>
+                            English
+                        </span>
+                    </button>
+                </div>
+                <div class="breadcrumbs-actions-mini breadcrumbs__actions-mini">
+                    <button class="breadcrumbs-actions-mini__button" type="button">
+                        <span class="breadcrumbs-actions-mini__button-wrap">
+                            <span class="breadcrumbs-actions-mini__icon"></span>                        
+                        </span>
+                    </button>
+                </div>            
+            </div>
+        </div>
+
+    </header>
+
+    <div class="notes header__notes">
+        <div class="notes__container">
+            <a class="notes__link" href="">
+                <span class="notes__text">When clouds appear, wise men put on their cloaks; When great leaves fall, the winter is at hand; When the sun sets, who doth not look for night?</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="main wrapper__main">
+
+        <div class="main__sidebar-container">
+
+            <aside class="side-nav main__side-nav">
+
+                <header class="side-search-header side-nav__search-header">
+                    <section class="nav-search side-nav__search">
+                        <div class="nav-search-form nav-search__form">
+                            <input class="nav-search-form__search-box" type="search" name="q" placeholder="" required=""
+                                value="">
+                            <button class="nav-search-form__cancel-button" type="button">
+                            <span class="nav-search-form__button-wrap">
+                                <span class="nav-search-form__icon-cancel "></span>                            
+                            </span>
+                            </button>
+                            <button class="nav-search-form__search-button" type="submit">
+                            <span class="nav-search-form__button-wrap">
+                                <span class="nav-search-form__icon-search"></span>                            
+                            </span>
+                            </button>
+                        </div>
+                    </section>
+                </header>
+
+                <div class="inner-nav side-nav__inner-nav">                        
+
+                    <div class="inner-nav__article-nav">
+                        <section class="article-nav__section">
+                            <header class="article-nav__header-container">
+                                <h2 class="article-nav__header">In this article</h2>
+                            </header>
+                            <ul class="article-nav__list">
+                                <li class="article-nav__option">
+                                    <a class="article-nav__option-link" href="#section1">I had rather be a toad</a>
+                                </li>
+                                <li class="article-nav__option">
+                                    <a class="article-nav__option-link" href="#section2">Sonnet 2</a>
+                                </li>
+                                <li class="article-nav__option">
+                                    <a class="article-nav__option-link" href="#section3">Sonnet 94</a>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+
+                    <ol class="side-menu inner-nav__menu">
+    
+                    <li class="side-menu-section side-menu__section">
+                        <a class="side-menu-section__option-header-link" href="">
+                            <strong class="side-menu-section__option-header">Frontend</strong>
+                        </a>
+                    </li>
+    
+                    <li class="side-menu-section side-menu__section">
+                        <a class="side-menu-section__option-header-link" href="">
+                            <strong class="side-menu-section__option-header">HTML</strong>
+                        </a>
+                        <ul class="side-submenu side-menu-section__option-list">
+                            <li class="submenu-option side-submenu__option">
+                                <a class="submenu-option__link" href="">
+                                    <span class="submenu-option__header">Base concepts</span>
+                                </a>
+                            </li>
+                            <li class="submenu-expanded-list side-submenu__option-list">
+                                <details class="submenu-details submenu-expanded-list__details">
+                                    <summary class="submenu-details__summary">Tags</summary>
+                                    <ul class="submenu-details__list">
+                                        <li class="submenu-option submenu-details__option">
+                                            <a class="submenu-option__link" href="">
+                                                <span class="submenu-option__header">Base concepts</span>
+                                            </a>
+                                        </li>
+                                        <li class="submenu-option submenu-details__option">
+                                            <a class="submenu-option__link" href="">
+                                                <span class="submenu-option__header">Tables</span>
+                                            </a>
+                                        </li>
+                                        <li class="submenu-option submenu-details__option">
+                                            <a class="submenu-option__link" href="">
+                                                <span class="submenu-option__header">Layouts</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </details>
+                            </li>
+                            <li class="submenu-expanded-list side-submenu__option-list">
+                                <details class="submenu-details submenu-expanded-list__details">
+                                    <summary class="submenu-details__summary">CSS</summary>
+                                    <ul class="submenu-details__list">
+                                        <li class="submenu-option submenu-details__option">
+                                            <a class="submenu-option__link" href="">
+                                                <span class="submenu-option__header">Base concepts</span>
+                                            </a>
+                                        </li>
+                                        <li class="submenu-option submenu-details__option">
+                                            <a class="submenu-option__link" href="">
+                                                <span class="submenu-option__header">CSS Selectors</span>
+                                            </a>
+                                        </li>
+                                        <li class="submenu-option submenu-details__option">
+                                            <a class="submenu-option__link" href="">
+                                                <span class="submenu-option__header">Block-Element-Modifer</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </details>
+                            </li>
+                        </ul>
+                    </li>
+    
+                    <li class="side-menu-section side-menu__section">
+                        <a class="side-menu-section__option-header-link" href="">
+                            <strong class="side-menu-section__option-header">Java Script</strong>
+                        </a>
+                        <ul class="side-submenu side-menu-section__option-list">
+                            <li class="submenu-expanded-list side-submenu__option-list">
+                                <details class="submenu-details submenu-expanded-list__details">
+                                    <summary class="submenu-details__summary">Operators</summary>
+                                    <ul class="submenu-details__list">
+                                        <li class="submenu-option submenu-details__option">
+                                            <a class="submenu-option__link" href="">
+                                                <span class="submenu-option__header">Base concepts</span>
+                                            </a>
+                                        </li>
+                                        <li class="submenu-option submenu-details__option">
+                                            <a class="submenu-option__link" href="">
+                                                <span class="submenu-option__header">Numeric operations</span>
+                                            </a>
+                                        </li>
+                                        <li class="submenu-option submenu-details__option">
+                                            <a class="submenu-option__link" href="">
+                                                <span class="submenu-option__header">Boolean operations</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </details>
+                            </li>
+                            <li class="submenu-expanded-list side-submenu__option-list">
+                                <details class="submenu-details submenu-expanded-list__details">
+                                    <summary class="submenu-details__summary">Functions</summary>
+                                    <ul class="submenu-details__list">
+                                        <li class="submenu-option submenu-details__option">
+                                            <a class="submenu-option__link" href="">
+                                                <span class="submenu-option__header">Base concepts</span>
+                                            </a>
+                                        </li>
+                                        <li class="submenu-option submenu-details__option">
+                                            <a class="submenu-option__link" href="">
+                                                <span class="submenu-option__header">Input and Output parameters</span>
+                                            </a>
+                                        </li>
+                                        <li class="submenu-option submenu-details__option">
+                                            <a class="submenu-option__link" href="">
+                                                <span class="submenu-option__header">Block-Element-Modifer</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </details>
+                            </li>
+                        </ul>
+                    </li>
+    
+                    <li class="side-menu-section side-menu__section">
+                        <a class="side-menu-section__option-header-link" href="">
+                            <strong class="side-menu-section__option-header">Glossary</strong>
+                        </a>
+                        <ul class="side-submenu side-menu-section__option-list">
+                            <li class="submenu-option side-submenu__option">
+                                <a class="submenu-option__link" href="">
+                                    <span class="submenu-option__header">Html base concepts</span>
+                                </a>
+                            </li>
+                            <li class="submenu-option side-submenu__option">
+                                <a class="submenu-option__link" href="">
+                                    <span class="submenu-option__header">Css base concepts</span>
+                                </a>
+                            </li>
+                            <li class="submenu-option side-submenu__option">
+                                <a class="submenu-option__link" href="">
+                                    <span class="submenu-option__header">Java script base concepts</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    </ol>
+
+                </div>
+
+            </aside>   
+
+            <div class="article-side main__article-nav-container">
+                <aside class="article-side-container article-side__container">
+                    <nav class="article-nav article-side-container__nav">
+                        <section class="article-nav__section">
+                            <header class="article-nav__header-container">
+                                <h2 class="article-nav__header">In this article</h2>
+                            </header>
+                            <ul class="article-nav__list">
+                                <li class="article-nav__option">
+                                    <a class="article-nav__option-link" href="#section1">I had rather be a toad</a>
+                                </li>
+                                <li class="article-nav__option">
+                                    <a class="article-nav__option-link" href="#section2">Sonnet 2</a>
+                                </li>
+                                <li class="article-nav__option">
+                                    <a class="article-nav__option-link" href="#section3">Sonnet 94</a>
+                                </li>
+                            </ul>
+                        </section>
+                    </nav>   
+                </aside>
+            </div>
+
+        </div> 
+
+        <main class="content main__content">
+
+            <article class="article content__article">
+
+                <div class="article__header-container">
+                    <h1 class="article__header">Some Shakespeare's poetries</h1>
+                </div>
+                <section class="article-section article__section" id="section1">
+                    <h3 class="article-section__header">I had rather be a toad</h3>
+                    <p class="article-section__text">
+                        O curse of marriage!<br>
+                        That we can call these delicate creatures ours,<br>
+                        And not their appetites! I had rather be a toad<br>
+                        And live upon the vapour of a dungeon<br>
+                        Than keep a corner in the thing I love<br>
+                        For others' uses.<br>
+                    </p>
+                </section>
+                <section class="article-section article__section" id="section2">
+                    <h3 class="article-section__header">Sonnet 2</h3>
+                    <p class="article-section__text">
+                        When forty winters shall besiege thy brow,<br>
+                        And dig deep trenches in thy beauty's field,<br>
+                        Thy youth's proud livery, so gazed on now,<br>
+                        Will be a tattered weed of small worth held.<br>
+                        Then being asked where all thy beauty lies,<br>
+                        Where all the treasure of thy lusty days,<br>
+                        To say within thine own deep-sunken eyes<br>
+                        Were an all-eating shame and thriftless praise.<br>
+                        How much more praise deserved thy beauty's use<br>
+                        If thou couldst answer 'This fair child of mine<br>
+                        Shall sum my count, and make my old excuse',<br>
+                        Proving his beauty by succession thine.<br>
+                        This were to be new made when thou art old,<br>
+                        And see thy blood warm when thou feel'st it cold.<br>
+                    </p>
+                </section>
+                <section class="article-section article__section" id="section3">
+                    <h3 class="article-section__header">Sonnet 94</h3>
+                    <p class="article-section__text">
+                        They that have power to hurt and will do none,<br>
+                        That do not do the thing they most do show,<br>
+                        Who moving others are themselves as stone,<br>
+                        Unmoved, cold, and to temptation slow -<br>
+                        They rightly do inherit heaven's graces,<br>
+                        And husband nature's riches from expense;<br>
+                        They are the lords and owners of their faces,<br>
+                        Others but stewards of their excellence.<br>
+                        The summer's flower is to the summer sweet,<br>
+                        Though to itself it only live and die;<br>
+                        But if that flower with base infection meet,<br>
+                        The basest weed outbraves his dignity;<br>
+                        For sweetest things turn sourest by their deeds:<br>
+                        Lilies that fester smell far worse than weeds.<br>
+                    </p>
+                </section>
+
+            </article>
+
+        </main>
+
+    </div>
+
+    <footer class="footer wrapper__footer">
+        <div class="footer-container footer__container">
+
+            <div class="footer-logo-col footer-container__logo-col">
+                <a class="footer-logo-col__logo-link" href="https://www.itschool.pro" target="_blank"
+                   rel="noopener noreferrer">
+                    <img class="footer-logo-col__logo-img" src="./assets/img/codemasters2.png">
+                </a>
+
+                <p class="footer-logo-col__text">Your blueprint for a better bla-bla-bla.</p>
+                <ul class="social-icons footer-logo-col__social-icons">
+                    <li class="social-icons__option">
+                        <a class="social-icons__twitter" href="">
+                        </a>
+                    </li>
+                    <li class="social-icons__option">
+                        <a class="social-icons__github-mark-small" href="">
+                        </a>
+                    </li>
+                    <li class="social-icons__option">
+                        <a class="social-icons__feed" href="" target="_blank">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-container__col-1">
+                <h2 class="footer-col__header">School</h2>
+                <ul class="footer-col-nav-list footer-col__nav-list">
+                    <li class="footer-col-nav-list__option">
+                        <a class="footer-col-nav-list__option-link" href="https://www.itschool.pro/about">About</a>
+                    </li>
+                    <li class="footer-col-nav-list__option">
+                        <a class="footer-col-nav-list__option-link" href="https://www.itschool.pro/#course">Courses</a>
+                    </li>
+                    <li class="footer-col-nav-list__option">
+                        <a class="footer-col-nav-list__option-link"
+                           href="https://www.itschoolsaransk.ru/work">Career</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-container__col-2">
+                <h2 class="footer-col__header">Info</h2>
+                <ul class="footer-col-nav-list footer-col__nav-list">
+                    <li class="footer-col-nav-list__option">
+                        <a class="footer-col-nav-list__option-link" href="https://www.itschool.pro/news">News</a>
+                    </li>
+                    <li class="footer-col-nav-list__option">
+                        <a class="footer-col-nav-list__option-link"
+                           href="https://www.itschool.pro/reviews">Feedbacks</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-container__col-3">
+                <h2 class="footer-col__header">Contact us</h2>
+                <ul class="footer-col-nav-list footer-col__nav-list">
+                    <li class="footer-col-nav-list__option">
+                        <a class="footer-col-nav-list__option-link"
+                           href="https://www.itschool.pro/contacts">Contacts</a>
+                    </li>
+                    <li class="footer-col-nav-list__option">
+                        <a class="footer-col-nav-list__option-link" href="tel://+79179907100">+79179907100</a>
+                    </li>
+                    <li class="footer-col-nav-list__option">
+                        <a class="footer-col-nav-list__option-link" href="tel://+7 (8342) 23 08 07">+7 (8342) 23 08
+                            07</a>
+                    </li>
+                    <li class="footer-col-nav-list__option">
+                        <a class="footer-col-nav-list__option-link" href="mailto://info@itschoolsaransk.ru">info@itschoolsaransk.ru</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-about footer__about">
+                <a class="footer-about__logo-link" href="https://www.itschool.pro" target="_blank"
+                   rel="noopener noreferrer">
+                    <img class="footer-about__logo-img" src="./assets/img/codemasters2.png">
+                </a>
+                <ul class="footer-about-list footer-about__list">
+                    <li class="footer-about-list__option">
+                        <a href="" class="footer-about-list__option-link" target="_blank" rel="noopener noreferrer">
+                            Website Privacy Notice
+                        </a>
+                    </li>
+                    <li class="footer-about-list__option">
+                        <a href="" target="_blank" rel="noopener noreferrer">
+                            Cookies
+                        </a>
+                    </li>
+                    <li class="footer-about-list__option">
+                        <a href="" target="_blank" rel="noopener noreferrer">
+                            Legal
+                        </a>
+                    </li>
+                    <li class="footer-about-list__option">
+                        <a href="" target="_blank" rel="noopener noreferrer">
+                            Community Participation Guidelines
+                        </a>
+                    </li>
+                </ul>
+            </div>
+    
+            <div class="footer-legal footer__legal">
+                <p id="license" class="footer-legal__text">
+                    Visit
+                    <a href="https://www.itschool.pro" target="_blank" rel="noopener noreferrer">Codemasters International
+                        IT School</a>
+                    <!-- -->not-for-profit some legal bla-bla-bla, the<!-- -->
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.itschool.pro">IT School Foundation</a>
+                    .<br>Portions of this content are ©<!-- --> 2023<!-- --> by individual school student. Content available
+                    under<!-- --> <a href="/ru/docs/MDN/Writing_guidelines/Attrib_copyright_license">a Creative Commons
+                    license</a>.
+                </p>
+            </div>
+
+        </div>
+    </footer>    
+</div>
+
+</body>
+</html>

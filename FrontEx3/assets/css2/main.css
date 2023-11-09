@@ -1,0 +1,296 @@
+﻿.wrapper__main {    
+    display: flex;
+    margin: 0 auto;
+    max-width: 1440px;
+}
+
+.main__sidebar-container {
+    display: none; 
+    max-height: calc(100vh - calc(calc(4rem + 2px) + 2rem + 1px));
+    position: sticky;
+    top: calc(calc(4rem + 2px) + 2rem + 1px);       
+}
+
+.main__side-nav {
+    max-height: calc(100vh - calc(calc(4rem + 2px) + 2rem + 1px));
+    position: sticky;
+    top: calc(calc(4rem + 2px) + 2rem + 1px);   
+    color: #4e4e4e;
+    display: flex;
+    flex-direction: column;
+    width: 100%;    
+}
+
+.side-nav__search-header {
+    height: 0;
+    padding-bottom: 4rem;
+    position: sticky;
+    top: 0;
+    z-index: 700;
+}
+
+.side-nav__search {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.833rem;
+    padding-bottom: 2rem;
+    padding-right: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+.nav-search__form {
+    align-items: center;
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-container__sidebar {
+    color: #4e4e4e;
+}
+
+.side-nav__inner-nav {
+    color: #4e4e4e;
+    margin-top: 0.5rem;
+}
+
+.inner-nav__menu {
+    list-style: none;
+    padding: 0;
+    font-size: 0.833rem;
+    margin: 0;
+}
+
+.side-menu__section {
+    margin-bottom: 0.5rem;
+}
+
+.side-menu-section__option-header-link {
+    text-decoration: none;
+    color: #4e4e4e;
+    text-decoration-skip-ink: auto;
+    hyphens: auto;
+    display: inline-flex;
+    padding: 0.25rem;
+}
+
+.side-menu-section__option-header {
+    display: flex;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.02rem;
+}
+
+.side-menu-section__option-list {
+    list-style: none;
+    padding: 0.25rem;
+}
+
+.side-submenu__option {
+    padding-top: 1rem;
+}
+
+.side-submenu__option-list {
+    padding-top: 1rem;
+}
+
+.submenu-option__link {
+    display: inline-flex;
+    text-decoration: none;
+    color: #4e4e4e;
+}
+
+.submenu-option__header {
+    text-decoration: none;
+}
+
+.submenu-details__summary {
+    cursor: pointer;
+}
+
+.submenu-details__list {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.submenu-details__option {
+    padding-top: 1rem;
+}
+
+.main__content {
+    display: flex;
+    min-height: 80vh;
+    flex-direction: column;
+    width: 100%;  
+}
+
+.content__article {
+    overflow-wrap: break-word;
+    padding: 3rem 1rem 1rem;
+}
+
+.article__header {
+    font: 600 2.488rem / 1.2 Inter, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    letter-spacing: -0.031rem;
+    margin: 0;
+    margin-bottom: 2rem;
+    word-break: break-word;    
+}
+
+.article-section__header {
+    margin-bottom: 2rem;
+}
+
+.article-section__text {
+    line-height: 1.75rem;
+    font-size: 1rem;
+}
+
+.article-side__container {
+    display: none;
+}
+
+.article-nav__section {
+    margin-bottom: 2rem;
+    padding: 0;
+}
+
+.article-nav__header {
+    font: 400 1.2rem /1.2 Inter, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    letter-spacing: 1.5px;
+    margin: 0 0 1rem;
+}
+
+.article-nav__list {
+    font-size: 0.833rem;
+    list-style: none;
+    padding-left: 0;
+}
+
+.article-nav__option {
+    margin: 0;
+}
+
+.article-nav__option-link {
+    border-left: 2px solid #cdcdcd;
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+}
+
+.article-nav__option-link:hover{
+    color: #0069c2;
+}
+
+.article-nav__option-link:link{
+    text-decoration: none;
+    color: #4e4e4e;
+}
+
+.article-nav__option-link:visited{
+    text-decoration: none;
+}
+
+.article-nav__option-link:active{
+    text-decoration: none;
+}
+
+@media screen and (min-width: 426px){
+    .content__article {
+        padding: 3rem;
+    }
+}
+
+@media screen and (min-width: 769px){    
+    .wrapper__main {
+        grid-gap: 3rem;
+        display: grid;
+        gap: 3rem;
+        grid-template-areas: "sidebar main";
+        grid-template-columns: minmax(0,1fr) minmax(0,2fr);
+        padding-left: 1.5rem;
+        padding-right: 3rem;
+    }
+
+    .main__sidebar-container {     
+        display: flex;        
+        z-index: auto;
+    }
+
+    .main__side-nav  {
+        display: flex;
+        align-self: start;
+        grid-area: sidebar;
+        padding-top: 0;
+        padding-bottom: 3rem;                        
+    }    
+
+    .main__content {
+        grid-area: main;
+        padding-bottom: 3rem;
+        padding-top: 3rem;
+    }    
+
+    .content__article {
+        margin-bottom: 0.5rem;
+        padding: 0;
+    }
+
+    .article__header {
+        font: 600 2.488rem / 1.2 Inter, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    }
+        
+    .article-side__container {
+        padding-bottom: 3rem;
+        padding-top: 3rem;
+    }
+}
+
+@media screen and (min-height: 44rem), screen and (min-width: 992px){
+    .main__side-nav  {
+        display: flex;
+        overflow: auto;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .wrapper__main {
+        grid-gap: 3rem;
+        display: grid;
+        gap: 3rem;
+        grid-template-areas: "sidebar main article-nav";
+        grid-template-columns: minmax(0,1fr) minmax(0,2.5fr) minmax(0,15rem);
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .main__sidebar-container {
+        display: contents;
+    }
+
+    .main__side-nav  {
+    }
+
+    .inner-nav__article-nav{
+        display: none;
+    }
+
+    .main__article-nav-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        height: calc(100vh - calc(calc(4rem + 2px) + 2rem + 1px));
+        overflow: auto;
+        position: sticky;
+        top: calc(calc(4rem + 2px) + 2rem + 1px);
+    }
+    
+    .article-side__container {        
+        display: block;
+        grid-area: article-nav;
+        height: fit-content;
+        padding-bottom: 0;
+    }
+}
+
+
