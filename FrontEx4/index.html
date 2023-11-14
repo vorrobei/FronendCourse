@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Frontend course Ex.4 Validation</title>
+
+    <link rel="stylesheet" href=".\assets\css\style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header wrapper__header">
+        </header>    
+
+        <main class="main wrapper__main">
+            <div class="form-container main__container">                
+                <form class="reg-form form-container__reg-form" action="http://google.com">
+                    <div class="reg-form__row">
+                        <label class="reg-form__label reg-form__label_required" for="email">Email</label>
+                        <input class="reg-form__text-input v_required v_email" id="email" type="email" required>
+                    </div>
+                    <div class="reg-form__row">
+                        <label class="reg-form__label reg-form__label_required" for="fio">FIO</label>
+                        <input class="reg-form__text-input v_required v_fio" id="fio" type="text" required>
+                    </div>
+                    <div class="reg-form__row">
+                        <label class="reg-form__label reg-form__label_required" for="password1">Password</label>
+                        <input class="reg-form__text-input v_required v_pwd" id="password1" type="password" required>
+                    </div>
+                    <div class="reg-form__row">
+                        <label class="reg-form__label reg-form__label_required" for="password2">Confirm password</label>
+                        <input class="reg-form__text-input v_required v_pwd_confirm" id="password2" type="password" required>
+                    </div>                    
+                    <div class="reg-form__row-inline">
+                        <label class="reg-form__label" for="checkbox">Accept the Rules</label>
+                        <label class="reg-form__label reg-form__label_modified-as-checkbox" for="accept_rules">
+                            <input class="reg-form__checkbox v_accept_rules_checked" id="accept_rules" type="checkbox">
+                            <span class="reg-form__slider"></span>                            
+                        </label>                                        
+                    </div>
+                    <div class="reg-form__row">
+                        <input class="reg-form__button" id="reg-submit" type="submit" value="Send" formnovalidate >
+                    </div>                                                                                
+                </form>                    
+            </div>
+        </main>
+
+        <footer class="footer wrapper__footer">
+        </footer>
+    </div>
+
+    <script src=".\assets\scripts\index.js" type="module"></script>
+</body>
+</html>
