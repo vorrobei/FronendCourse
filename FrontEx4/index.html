@@ -8,16 +8,23 @@
     <link rel="stylesheet" href=".\assets\css\style.css">
 </head>
 <body>
+<!-- Не использовался UI kit который я приложил в задании-->
     <div class="wrapper">
         <header class="header wrapper__header">
-        </header>    
+        </header>
 
         <main class="main wrapper__main">
-            <div class="form-container main__container">                
+            <div class="form-container main__container">
                 <form class="reg-form form-container__reg-form" action="http://google.com">
+                        <!--
+                         Это хороший кандидат на вынос в отдельный БЭМ-блок
+                        1.Сейчас у тебя row,label, text-input они непосредственно "привязаны" к форме, хотя они относятся к контролу непосредственно
+                        2. Контрол может быть и вне формы (не говоря уже о конкретно форме регистрации)
+                        -->
                     <div class="reg-form__row">
                         <label class="reg-form__label reg-form__label_required" for="email">Email</label>
-                        <input class="reg-form__text-input v_required v_email" id="email" type="email" required>
+                        <!-- v_required можно вынести как модификатор  text-input. v_email нужен, как я понял, чтобы найти элемент через JS. Для этих целей можно использовать email, он тут подойдет лучше из-за уникальности и не придется плодить классы-->
+                        <input class="reg-form__text-input v_required v_email" id="email" type="email" required> <!-- HTML валидация используется редко, тем более в случае когда уже реализована валидация через JS-->
                     </div>
                     <div class="reg-form__row">
                         <label class="reg-form__label reg-form__label_required" for="fio">FIO</label>
@@ -29,19 +36,19 @@
                     </div>
                     <div class="reg-form__row">
                         <label class="reg-form__label reg-form__label_required" for="password2">Confirm password</label>
-                        <input class="reg-form__text-input v_required v_pwd_confirm" id="password2" type="password" required>
-                    </div>                    
-                    <div class="reg-form__row-inline">
+                        <input class="reg-form__text-input v_required v_pwd_confirm" id="password2" type="password" required> <!-- Плохое название. Почему бы не назвать это password-confirmation?-->
+                    </div>
+                    <div class="reg-form__row-inline"> <!-- Это не то что требовалось, я даже в чате уточнил как это должно выглядеть-->
                         <label class="reg-form__label" for="checkbox">Accept the Rules</label>
                         <label class="reg-form__label reg-form__label_modified-as-checkbox" for="accept_rules">
                             <input class="reg-form__checkbox v_accept_rules_checked" id="accept_rules" type="checkbox">
-                            <span class="reg-form__slider"></span>                            
-                        </label>                                        
+                            <span class="reg-form__slider"></span>
+                        </label>
                     </div>
                     <div class="reg-form__row">
                         <input class="reg-form__button" id="reg-submit" type="submit" value="Send" formnovalidate >
-                    </div>                                                                                
-                </form>                    
+                    </div>
+                </form>
             </div>
         </main>
 

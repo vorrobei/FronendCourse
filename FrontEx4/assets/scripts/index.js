@@ -1,11 +1,11 @@
 "use strict";
 
-let validation_dictionary = {
-
+/* Идея хорошая. Например в ангуляре валидация формы  примерно так и выглядит*/
+let validation_dictionary = { /* В JS принята camelCase нотация */
     v1: {
         item_list: ['v_required'],
-        validate: function(element, elements = null) {            
-            return element.value != "";
+        validate: function(element, elements = null) {
+            return element.value != ""; /* Я говорил по поводу того как сравнивать значения (нужно использовать !== и ===  вместое !== и == соответственно. Посмотри везде*/
         },
         error_str: 'field required',
     },
@@ -27,7 +27,7 @@ let validation_dictionary = {
         },
         error_str: 'enter correct FIO',
     },
-    
+
     v4: {
         item_list: ['v_pwd'],
         validate: function(element, elements = null) {
@@ -59,7 +59,7 @@ let validation_dictionary = {
             return false;
         },
         error_str: 'accept the rules before continue',
-    }       
+    }
 
 };
 
@@ -67,18 +67,23 @@ function get_form_row_for_element(element){
 
     let curr_element = element;
 
-    do{        
-        curr_element = curr_element.parentElement;        
+    do{
+        curr_element = curr_element.parentElement;
     }
+    /*
+      ключи вроде 'FORM'  лучше выносить в константы, чтобы избежать опечаток в случае чего. Даже если она используется в одном месте
+      Условие довольно сложно распарсить, лучше вынести его в отдельную переменную/функцию
+    * */
     while(!curr_element.classList.contains('reg-form__row') && !curr_element.classList.contains('reg-form__row-inline') && curr_element.nodeName != 'FORM');
 
     return curr_element;
 }
 
-function clear_validations_text(){    
+function clear_validations_text(){
 
     Array.from(document.forms[0].elements).forEach(
-        (e) => {  
+        (e) => {
+            /* Переусложнено слишком. Достаточно просто создавать новый div с классом form-control__error и зачищать/добавлять текст ошибок при необходимости */
             let error_element = get_form_row_for_element(e);
             error_element.setAttribute('error-text', "");
         }
@@ -86,10 +91,10 @@ function clear_validations_text(){
 }
 
 function get_validations_for_element(element){
-    
+
     let res = [];
 
-    if(element.nodeName == 'INPUT'){
+    if(element.nodeName == 'INPUT'){ // Обычно в таких случаях обе стороны сравнения делаю отдного кейса, чтобы избежать потениальных проблем
 
         for (const [key, value] of Object.entries(validation_dictionary)) {
 
@@ -115,9 +120,9 @@ function set_validation_error_for_element(element, error_text){
     let error_element = get_form_row_for_element(element);
     let current_error = "" + error_element.getAttribute('error-text');
 
-    error_element.setAttribute('error-text', current_error + " > " + error_text);   
+    error_element.setAttribute('error-text', current_error + " > " + error_text);
 
-    return 0;
+    return 0; /* Не обязательно возвращать значения. Можно либо вообще не юзать return если функция ничего не возвращает*/
 }
 
 function validate(){
@@ -127,21 +132,21 @@ function validate(){
     let success_flag = true;
 
     Array.from(document.forms[0].elements).forEach(
-        (e) => {             
-                
+        (e) => {
+
             let validations = get_validations_for_element(e);
-                
-            if(validations){            
-                
+
+            if(validations){
+
                 for(const v of validations){
 
                     if(!v.validate(e, document.forms[0].elements)){
                         set_validation_error_for_element(e, v.error_str);
                         success_flag = false;
                     }
-                }                      
-            }            
-        }                     
+                }
+            }
+        }
     )
 
     return success_flag;
@@ -152,7 +157,7 @@ function init(){
     let form_registration = document.querySelector(".reg-form");
 
     form_registration.addEventListener(
-        'submit', 
+        'submit',
         function (e) {
             if(!validate()){
                 e.preventDefault();
@@ -162,9 +167,9 @@ function init(){
 
 }
 
-function main(){
+function main(){ /* Эта функция лишняя, можно сразу вызвать init*/
 
-    init();  
+    init();
 
     return 0;
 }
