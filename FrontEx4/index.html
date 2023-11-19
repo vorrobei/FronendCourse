@@ -8,7 +8,7 @@
     <link rel="stylesheet" href=".\assets\css\style.css">
 </head>
 <body>
-<!-- Не использовался UI kit который я приложил в задании-->
+    <!-- Не использовался UI kit который я приложил в задании-->
     <div class="wrapper">
         <header class="header wrapper__header">
         </header>
@@ -16,37 +16,38 @@
         <main class="main wrapper__main">
             <div class="form-container main__container">
                 <form class="reg-form form-container__reg-form" action="http://google.com">
-                        <!--
-                         Это хороший кандидат на вынос в отдельный БЭМ-блок
-                        1.Сейчас у тебя row,label, text-input они непосредственно "привязаны" к форме, хотя они относятся к контролу непосредственно
-                        2. Контрол может быть и вне формы (не говоря уже о конкретно форме регистрации)
-                        -->
-                    <div class="reg-form__row">
-                        <label class="reg-form__label reg-form__label_required" for="email">Email</label>
+                    <div class="form-row reg-form__row">
+                        <label class="form-row__label form-row__label_required" for="email">Email</label>
                         <!-- v_required можно вынести как модификатор  text-input. v_email нужен, как я понял, чтобы найти элемент через JS. Для этих целей можно использовать email, он тут подойдет лучше из-за уникальности и не придется плодить классы-->
-                        <input class="reg-form__text-input v_required v_email" id="email" type="email" required> <!-- HTML валидация используется редко, тем более в случае когда уже реализована валидация через JS-->
+                        <!-- v_required и v_email - указывают какие валидации применить к элементу -->
+                        <input class="form-row__text-input v_required v_email" id="email" type="email">
+                        <div class="form-row__error"><span class="form-row__error-text"></span></div>
                     </div>
-                    <div class="reg-form__row">
-                        <label class="reg-form__label reg-form__label_required" for="fio">FIO</label>
-                        <input class="reg-form__text-input v_required v_fio" id="fio" type="text" required>
+                    <div class="form-row reg-form__row">
+                        <label class="form-row__label form-row__label_required" for="fio">FIO</label>
+                        <input class="form-row__text-input v_required v_fio" id="fio" type="text">
+                        <div class="form-row__error"><span class="form-row__error-text"></span></div>
                     </div>
-                    <div class="reg-form__row">
-                        <label class="reg-form__label reg-form__label_required" for="password1">Password</label>
-                        <input class="reg-form__text-input v_required v_pwd" id="password1" type="password" required>
+                    <div class="form-row reg-form__row">
+                        <label class="form-row__label form-row__label_required" for="password">Password</label>
+                        <input class="form-row__text-input v_required v_pwd" id="password" type="password">
+                        <div class="form-row__error"><span class="form-row__error-text"></span></div>
                     </div>
-                    <div class="reg-form__row">
-                        <label class="reg-form__label reg-form__label_required" for="password2">Confirm password</label>
-                        <input class="reg-form__text-input v_required v_pwd_confirm" id="password2" type="password" required> <!-- Плохое название. Почему бы не назвать это password-confirmation?-->
+                    <div class="form-row reg-form__row">
+                        <label class="form-row__label form-row__label_required" for="password-confirmation">Confirm password</label>
+                        <input class="form-row__text-input v_required v_pwd_confirm" id="password-confirmation" type="password">
+                        <div class="form-row__error"><span class="form-row__error-text"></span></div>
                     </div>
-                    <div class="reg-form__row-inline"> <!-- Это не то что требовалось, я даже в чате уточнил как это должно выглядеть-->
-                        <label class="reg-form__label" for="checkbox">Accept the Rules</label>
-                        <label class="reg-form__label reg-form__label_modified-as-checkbox" for="accept_rules">
-                            <input class="reg-form__checkbox v_accept_rules_checked" id="accept_rules" type="checkbox">
-                            <span class="reg-form__slider"></span>
+
+                    <div class="form-row reg-form__row">
+                        <label class="reg-checkbox form-row__label form-row__label_required reg-checkbox_padding" for="accept_rules">Please, accept the Rules
+                            <input class="reg-checkbox__input v_accept_rules_checked" type="checkbox" id="accept_rules">
+                            <span class="reg-checkbox__box"></span>
                         </label>
+                        <div class="form-row__error"><span class="form-row__error-text"></span></div>
                     </div>
-                    <div class="reg-form__row">
-                        <input class="reg-form__button" id="reg-submit" type="submit" value="Send" formnovalidate >
+                    <div class="form-row reg-form__row">
+                        <input class="form-row__button" id="reg-submit" type="submit" value="Send" formnovalidate >                        
                     </div>
                 </form>
             </div>
@@ -56,6 +57,6 @@
         </footer>
     </div>
 
-    <script src=".\assets\scripts\index.js" type="module"></script>
+    <script src=".\assets\scripts\index2.js" type="module"></script>
 </body>
 </html>
