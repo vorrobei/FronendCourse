@@ -1,0 +1,21 @@
+{
+  "name": "frontex5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "testjs": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server",
+    "jsonserver_v2": "node ./assets/config/json-server.js",
+    "jsonserver": "json-server -p 3034 ./assets/db/db.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "json-server": "^0.17.4",
+    "lite-server": "^2.6.1",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.2",
+    "webpack-cli": "^5.1.4"
+  }
+}

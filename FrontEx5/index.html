@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>    
+    <meta name='viewport' content='width=device-width, initial-scale=1'>    
+
+    <title>Frontend course Ex5 - Typescript Quiz</title>
+    
+    <link rel="stylesheet" href="./assets/styles/quiz.css">    
+</head>
+<body>
+    <div class="wrapper">
+        <main class="main wrapper__main">
+            <div class="quiz-container main__quiz-container">
+                <div class="quiz-header quiz-container__quiz-header">
+                    <span class="quiz-header__text">Quiz</span>
+                </div>
+                <form class="quiz-form quiz-container__quiz-form">
+                    <div class="question-text quiz-form__question-text">
+                        <span class="question-text__text"></span>
+                    </div>
+                    <div class="question-controls quiz-form__question-controls">
+                        <button class="question-controls__button" type="button">Кнопка 1</button>
+                        <button class="question-controls__button" type="button">Кнопка 2</button>
+                        <button class="question-controls__button" type="button">Кнопка 3</button>
+                        <button class="question-controls__button" type="button">Кнопка 4</button>
+                    </div>
+                    <div class="quiz-controls quiz-form__quiz-controls">
+                        <button class="quiz-controls__button-next" type="button">Next</button>
+                    </div>
+                </form>
+                <form class="quiz-result quiz-container__quiz-result">
+                    <div class="score-container quiz-result__score-container">
+                        <span class="score-container__text">Your scored 1 out of 4</span>
+                    </div>                    
+                    <div class="quiz-controls quiz-result__controls">
+                        <button class="quiz-controls__button-play-again" type="button">Play Again</button>
+                    </div>                    
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src='./assets/scripts/bin/bundle.js' type="module"></script>    
+</body>
+</html>

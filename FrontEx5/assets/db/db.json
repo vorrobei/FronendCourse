@@ -1,0 +1,538 @@
+{
+  "quiz": [
+    {
+      "id": 1,
+      "title": "test-quiz",
+      "author": "Microsoft Bing chatbot",
+      "questionIDs": [11,12,13,14,15,16,17,18,19,20]
+    },
+    {
+      "id": 2,
+      "title": "test-quiz 2",
+      "author": "Microsoft Bing chatbot",
+      "questionIDs": [21,22,23,24,25,26,27,28,29,30]
+    }
+  ],
+  "question": [
+    {
+      "id": 11,
+      "text": "What is the name of the largest bone in the human body?",
+      "answers": [
+        {
+          "id": 40,
+          "answer": "Humerus",
+          "correct": false
+        },
+        {
+          "id": 41,
+          "answer": "Femur",
+          "correct": true
+        },
+        {
+          "id": 42,
+          "answer": "Tibia",
+          "correct": false
+        },
+        {
+          "id": 43,
+          "answer": "Fibula",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "text": "Which of these countries is not part of the European Union?",
+      "answers": [
+        {
+          "id": 44,
+          "answer": "Norway",
+          "correct": true
+        },
+        {
+          "id": 45,
+          "answer": "France",
+          "correct": false
+        },
+        {
+          "id": 46,
+          "answer": "Germany",
+          "correct": false
+        },
+        {
+          "id": 47,
+          "answer": "Spain",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "text": "Who wrote the classic novel Frankenstein?",
+      "answers": [
+        {
+          "id": 48,
+          "answer": "Bram Stoker",
+          "correct": false
+        },
+        {
+          "id": 49,
+          "answer": "Mary Shelley",
+          "correct": true
+        },
+        {
+          "id": 50,
+          "answer": "Robert Louis Stevenson",
+          "correct": false
+        },
+        {
+          "id": 51,
+          "answer": "Edgar Allan Poe",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "text": "What is the capital city of Canada?",
+      "answers": [
+        {
+          "id": 52,
+          "answer": "Toronto",
+          "correct": false
+        },
+        {
+          "id": 53,
+          "answer": "Montreal",
+          "correct": false
+        },
+        {
+          "id": 54,
+          "answer": "Ottawa",
+          "correct": true
+        },
+        {
+          "id": 55,
+          "answer": "Vancouver",
+          "correct": false
+        }
+      ]
+    },
+    {
+        "id": 15,
+        "text": "Which of these elements has the highest atomic number?",
+        "answers": [
+          {
+            "id": 56,
+            "answer": "Uranium",
+            "correct": false
+          },
+          {
+            "id": 57,
+            "answer": "Plutonium",
+            "correct": true
+          },
+          {
+            "id": 58,
+            "answer": "Neptunium",
+            "correct": false
+          },
+          {
+            "id": 59,
+            "answer": "Americium",
+            "correct": false
+          }
+        ]
+    },
+    {
+      "id": 16,
+      "text": "Which of these animals is not a mammal?",
+      "answers": [
+        {
+          "id": 60,
+          "answer": "Platypus",
+          "correct": false
+        },
+        {
+          "id": 61,
+          "answer": "Crocodile",
+          "correct": true
+        },
+        {
+          "id": 62,
+          "answer": "Whale",
+          "correct": false
+        },
+        {
+          "id": 63,
+          "answer": "Panda",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "text": "Which of these musical instruments is a woodwind instrument?",
+      "answers": [
+        {
+          "id": 64,
+          "answer": "Trumpet",
+          "correct": false
+        },
+        {
+          "id": 65,
+          "answer": "Trombone",
+          "correct": false
+        },
+        {
+          "id": 66,
+          "answer": "Saxophone",
+          "correct": true
+        },
+        {
+          "id": 67,
+          "answer": "Tuba",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "text": "Which of these planets is the second smallest in the solar system?",
+      "answers": [
+        {
+          "id": 68,
+          "answer": "Mercury",
+          "correct": false
+        },
+        {
+          "id": 69,
+          "answer": "Mars",
+          "correct": true
+        },
+        {
+          "id": 70,
+          "answer": "Venus",
+          "correct": false
+        },
+        {
+          "id": 71,
+          "answer": "Earth",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "text": "Which of these artists painted the Mona Lisa?",
+      "answers": [
+        {
+          "id": 72,
+          "answer": "Leonardo da Vinci",
+          "correct": true
+        },
+        {
+          "id": 73,
+          "answer": "Michelangelo",
+          "correct": false
+        },
+        {
+          "id": 74,
+          "answer": "Raphael",
+          "correct": false
+        },
+        {
+          "id": 75,
+          "answer": "Donatello",
+          "correct": false
+        }
+      ]
+    },
+    {
+    "id": 20,
+    "text": "Which of these sports is played on a grass court?",
+    "answers": [
+        {
+          "id": 76,
+          "answer": "Tennis",
+          "correct": true
+        },
+        {
+          "id": 77,
+          "answer": "Basketball",
+          "correct": false
+        },
+        {
+          "id": 78,
+          "answer": "Volleyball",
+          "correct": false
+        },
+        {
+          "id": 79,
+          "answer": "Badminton",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "text": "What is the name of the HTML element that defines a hyperlink?",
+      "answers": [
+      {
+      "id": 80,
+      "answer": "<link>",
+      "correct": false
+      },
+      {
+      "id": 81,
+      "answer": "<a>",
+      "correct": true
+      },
+      {
+      "id": 82,
+      "answer": "<url>",
+      "correct": false
+      },
+      {
+      "id": 83,
+      "answer": "<href>",
+      "correct": false
+      }
+      ]
+    },
+    {
+    "id": 22,
+    "text": "What is the name of the CSS property that sets the background color of an element?",
+    "answers": [
+    {
+    "id": 84,
+    "answer": "color",
+    "correct": false
+    },
+    {
+    "id": 85,
+    "answer": "background-color",
+    "correct": true
+    },
+    {
+    "id": 86,
+    "answer": "bgcolor",
+    "correct": false
+    },
+    {
+    "id": 87,
+    "answer": "background",
+    "correct": false
+    }
+    ]
+    },
+    {
+    "id": 23,
+    "text": "What is the name of the JavaScript function that displays a message in a pop-up window?",
+    "answers": [
+    {
+    "id": 88,
+    "answer": "popup()",
+    "correct": false
+    },
+    {
+    "id": 89,
+    "answer": "window()",
+    "correct": false
+    },
+    {
+    "id": 90,
+    "answer": "message()",
+    "correct": false
+    },
+    {
+    "id": 91,
+    "answer": "alert()",
+    "correct": true
+    }
+    ]
+    },
+    {
+    "id": 24,
+    "text": "What is the name of the HTML attribute that specifies the URL of an image?",
+    "answers": [
+    {
+    "id": 92,
+    "answer": "img",
+    "correct": false
+    },
+    {
+    "id": 93,
+    "answer": "source",
+    "correct": false
+    },
+    {
+    "id": 94,
+    "answer": "src",
+    "correct": true
+    },
+    {
+    "id": 95,
+    "answer": "url",
+    "correct": false
+    }
+    ]
+    },
+    {
+    "id": 25,
+    "text": "What is the name of the CSS selector that matches all elements of a type?",
+    "answers": [
+    {
+    "id": 96,
+    "answer": "Universal selector",
+    "correct": false
+    },
+    {
+    "id": 97,
+    "answer": "ID selector",
+    "correct": false
+    },
+    {
+    "id": 98,
+    "answer": "Class selector",
+    "correct": false
+    },
+    {
+    "id": 99,
+    "answer": "Type selector",
+    "correct": true
+    }
+    ]
+    },
+    {
+    "id": 26,
+    "text": "What is the name of the JavaScript operator that assigns a value to a variable?",
+    "answers": [
+    {
+    "id": 100,
+    "answer": "==",
+    "correct": false
+    },
+    {
+    "id": 101,
+    "answer": "<-",
+    "correct": false
+    },
+    {
+    "id": 102,
+    "answer": "=>",
+    "correct": false
+    },
+    {
+    "id": 103,
+    "answer": "=",
+    "correct": true
+    }
+    ]
+    },
+    {
+    "id": 27,
+    "text": "What is the name of the HTML element that defines a table row?",
+    "answers": [
+    {
+    "id": 104,
+    "answer": "<row>",
+    "correct": false
+    },
+    {
+    "id": 105,
+    "answer": "<table>",
+    "correct": false
+    },
+    {
+    "id": 106,
+    "answer": "<td>",
+    "correct": false
+    },
+    {
+    "id": 107,
+    "answer": "<tr>",
+    "correct": true
+    }
+    ]
+    },
+    {
+    "id": 28,
+    "text": "What is the name of the CSS property that sets the font size of an element?",
+    "answers": [
+    {
+    "id": 108,
+    "answer": "text-size",
+    "correct": false
+    },
+    {
+    "id": 109,
+    "answer": "size",
+    "correct": false
+    },
+    {
+    "id": 110,
+    "answer": "font",
+    "correct": false
+    },
+    {
+    "id": 111,
+    "answer": "font-size",
+    "correct": true
+    }
+    ]
+    },
+    {
+    "id": 29,
+    "text": "What is the name of the JavaScript keyword that declares a variable?",
+    "answers": [
+    {
+    "id": 112,
+    "answer": "let",
+    "correct": false
+    },
+    {
+    "id": 113,
+    "answer": "variable",
+    "correct": false
+    },
+    {
+    "id": 114,
+    "answer": "const",
+    "correct": false
+    },
+    {
+    "id": 115,
+    "answer": "var",
+    "correct": true
+    }
+    ]
+    },
+    {
+    "id": 30,
+    "text": "What is the name of the HTML element that defines a table header cell?",
+    "answers": [
+    {
+    "id": 116,
+    "answer": "<h1>",
+    "correct": false
+    },
+    {
+    "id": 117,
+    "answer": "<header>",
+    "correct": false
+    },
+    {
+    "id": 118,
+    "answer": "<thead>",
+    "correct": false
+    },
+    {
+    "id": 119,
+    "answer": "<th>",
+    "correct": true
+    }
+    ]
+    }
+  ]
+}
