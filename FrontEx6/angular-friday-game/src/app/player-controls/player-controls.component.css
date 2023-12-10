@@ -1,0 +1,17 @@
+.player-controls-container {
+    display: flex;
+    width: 100%;
+}
+
+.player-controls-container__player-controls {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+        
+.player-controls__button-test {
+    width: 100px;
+    height: 60px;
+    border-radius: 10px;
+}

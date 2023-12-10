@@ -1,0 +1,57 @@
+.card-threat-container__card-threat {
+    width: 120px;
+    height: 200px;
+    background-color: lightgrey;
+    border-radius: 10px;
+    border: 1px solid black;
+    display: flex;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.8rem;
+    align-items: center;
+}
+
+.card-threat__card-title{
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 5px;        
+    text-align: center;
+}
+
+.card-title__text {
+    line-height: 1.5rem;
+    align-self: center;
+}
+
+.card-threat__card-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-end;
+}
+
+.card-footer__free-card-counter {
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid black;
+    padding: 10px 15px;
+    height: min-content;
+    justify-self: end;
+}
+
+.card-footer__threat-levels {
+    display: flex;
+    flex-direction: column;
+    gap: 2px
+}
+
+.threat-levels__level {
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid black;
+    padding: 10px 15px;
+}

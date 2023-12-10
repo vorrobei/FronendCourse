@@ -1,0 +1,13 @@
+<div class="card-threat-container">
+    <div class="card-threat card-threat-container__card-threat">
+        <div class="card-title card-threat__card-title">        
+            <span class="card-title__text">{{card.name}}</span>
+        </div>
+        <div class="card-footer card-threat__card-footer">        
+            <div class="free-card-counter card-footer__free-card-counter">{{card.freeCards}}</div>
+            <div class="threat-levels card-footer__threat-levels">
+                <div *ngFor="let level of card.levelValues" class="threat-levels__level">{{level}}</div>
+            </div>            
+        </div>
+    </div>
+</div>

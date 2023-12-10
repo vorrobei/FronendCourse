@@ -1,0 +1,13 @@
+.cards-display-container {
+    display: flex;
+    width: 100%;
+}
+
+.cards-display-container__cards_display{
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    background-color: lightslategray;
+    height: 240px;
+    border-radius: 10px;
+}

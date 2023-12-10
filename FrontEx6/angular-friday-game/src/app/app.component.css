@@ -1,0 +1,15 @@
+.app-container {
+    display: flex;    
+    flex-direction: column;
+}
+
+.app-container__app-header {
+    display: flex;
+    justify-content: center;    
+}
+
+.app-container__app-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+}
