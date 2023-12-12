@@ -1,0 +1,32 @@
+.fighting-display-container__fighting-display {
+    display: grid;
+    grid-template: 
+        "tr ac ac ac"
+        "tr ac ac ac"
+        "pl ac ac ac"
+        "pl pc pc pc";
+}
+
+.fighting-display__threat-card-container {
+    grid-area: tr;
+    background-color: aliceblue;
+    border-radius: 10px;    
+}
+
+.fighting-display__player-container {
+    grid-area: pl;
+    background-color: antiquewhite;
+    border-radius: 10px;    
+}
+        
+.fighting-display__player-controls-container {
+    grid-area: pc;
+    background-color: azure;
+    border-radius: 10px;        
+}
+
+.fighting-display__ability-cards-display {
+    grid-area: ac;
+    background-color: azure;
+    border-radius: 10px;        
+}    

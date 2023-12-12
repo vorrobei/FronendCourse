@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ICardAbility } from '../cards/card.ability';
+import { CardAbilityAction1xDestroy, CardAbilityAdd2Life, ICardAbility } from '../cards/card.ability';
 
 @Component({
   selector: 'app-card-ability',
@@ -10,10 +10,10 @@ import { ICardAbility } from '../cards/card.ability';
 })
 export class CardAbilityComponent {
   card: ICardAbility = {    
-    id: 101, 
-    name: 'distracted', 
-    abilityValue: -1, 
-    ability: null,
+    id: 213, 
+    name: 'realization', 
+    abilityValue: 1, 
+    ability: new CardAbilityAction1xDestroy(),
     discardCost: 1
   }
 }

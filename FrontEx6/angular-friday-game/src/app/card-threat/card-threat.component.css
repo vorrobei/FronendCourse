@@ -1,5 +1,5 @@
 .card-threat-container__card-threat {
-    width: 120px;
+    width: 140px;
     height: 200px;
     background-color: lightgrey;
     border-radius: 10px;
@@ -14,17 +14,21 @@
     align-items: center;
 }
 
+.card-threat-container__card-threat:hover {
+    background-color: aquamarine;
+    border: 1px solid white;
+}
+
 .card-threat__card-title{
     background-color: white;
     border-radius: 10px;
-    border: 1px solid black;
-    padding: 5px;        
+    border: 1px solid black;   
     text-align: center;
+    width: 100%;    
 }
 
 .card-title__text {
     line-height: 1.5rem;
-    align-self: center;
 }
 
 .card-threat__card-footer {
@@ -46,12 +50,14 @@
 .card-footer__threat-levels {
     display: flex;
     flex-direction: column;
-    gap: 2px
+    gap: 2px;
+    width: 40px;
+    text-align: center;    
 }
 
 .threat-levels__level {
     background-color: white;
     border-radius: 20px;
     border: 1px solid black;
-    padding: 10px 15px;
+    padding: 10px 10px;
 }

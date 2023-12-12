@@ -1,0 +1,19 @@
+.threat-selector-container__threat-selector {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgb(209, 138, 138);
+}
+
+.threat-selector__threat-option {
+    cursor: pointer;    
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.threat-selector__threat-option:hover {
+    cursor: pointer;    
+    background-color: green;
+}

@@ -1,1 +1,20 @@
-<p>card-ability works!</p>
+<div class="card-ability-container">
+    <div class="card-ability card-ability-container__card-ability">
+        <div class="card-ability-header card-ability__card-ability-header">
+            <div class="card-value card-ability-header__card-value">
+                <span class="card-title__text">{{card.abilityValue}}</span>       
+            </div>
+            <div class="card-title card-ability-header__card-title">
+                <span class="card-title__text">{{card.name}}</span>       
+            </div>            
+        </div>
+        <div class="ability card-ability__ability">        
+            <span class="ability__text">{{card.ability?.name}}</span>            
+        </div>           
+        <div class="card-ability-footer card-ability__card-ability-footer">               
+            <div class="card-ability-discard-cost card-ability-footer__card-ability-discard-cost">
+                <span class="card-ability-discard-cost__text">{{card.discardCost}}</span>       
+            </div>                            
+        </div>        
+    </div>
+</div>
