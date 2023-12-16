@@ -1,59 +1,90 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 import { ICardThreat } from './cards/card.treat';
-import { CardAbilityAction1xDestroy, ICardAbility } from './cards/card.ability';
-import { CardDeck, ICardDeck } from './cards/card.deck';
-import { ThreatCards } from './cards/card.threat.deck.mock';
 import { Router } from '@angular/router';
-import { AbilityCards } from './cards/card.ability.deck.mock';
+import { NextTurnDTO } from './game-domain/next-turn-dto';
+import { GameDataService } from './game-data.service';
+import { PlayerDTO } from './game-domain/player-dto';
+import { ICardAbility, ICardAbilityAction } from './cards/card.ability';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameControllerService {
 
-  private threatDeck: ICardDeck<ICardThreat> = new CardDeck<ICardThreat>();
+  // player info
+  public player: PlayerDTO = new PlayerDTO(0, 0)
+  // turn info
+  public turn: NextTurnDTO = new NextTurnDTO(this.player, 1, []);  
 
-  private abilityDeck: ICardDeck<ICardAbility> = new CardDeck<ICardAbility>();  
+  // threat level
+  public currentThreatLevel: number = 1;
+  // threat card selected for turn
+  public currentThreatCard: ICardThreat = {} as ICardThreat;
 
-  /*
-  public drawThreatCard = new Subject<ICardThreat>();
+  // free cards counter  
+  public freeCardsCounter: number = 0;
+  // current set of ability cards
+  public abilityCards: Array<ICardAbility> = new Array<ICardAbility>();
+  // current set of actions
+  public actions: Array<ICardAbilityAction> = new Array<ICardAbilityAction>();
 
-  public drawAbilityCard = new Subject<ICardAbility>();
-  */
+  // current score to fght threat
+  public currentScores: number = 0;
+  
+  constructor(private router: Router, private gameData: GameDataService) {}
 
-  constructor(private router: Router) {
-    this.threatDeck.cards = ThreatCards;
-    this.threatDeck.Shuffle();
-
-    this.abilityDeck.cards = AbilityCards.filter((card) => { card.id < 200 });
+  // start new game
+  public StartGame(): PlayerDTO {
+    this.player = JSON.parse(this.gameData.StartNewGame()) as PlayerDTO;
+    return this.player;
   }
 
-  public drawThreatCards(count: number): Array<ICardThreat>{
-    
-    let res: Array<ICardThreat> = [];    
+  // return data for next turn
+  public NextTurn(): NextTurnDTO {
+    this.turn = JSON.parse(this.gameData.NextTurn()) as NextTurnDTO;    
+    return this.turn;
+  }
 
-    for(let i = 0; i < count; i++){
-      let card: ICardThreat | undefined = this.threatDeck.DrawCard();
-      if(card !== undefined){
-        res.push(card);
-      }
+  public SetSelectedThreatCard(selectedCard: ICardThreat, unselected: Array<ICardThreat>): void{
+    
+    this.currentThreatCard = selectedCard;
+
+    this.abilityCards = [];
+
+    this.freeCardsCounter = this.currentThreatCard.freeCards;        
+    this.currentScores = 0;
+
+    this.router.navigate(['fightThreat']);
+
+    // this.router.navigate(['/fightThreat', selectedCard.id.toString()]);
+  }
+
+  public DrawAbilityCard(): ICardAbility {
+
+    if(this.freeCardsCounter > 0){
+      this.freeCardsCounter--;
+      console.log('draw ability card for free');
+    }else{      
+      this.player.currentPlayerHP--;
+      console.log('draw ability card for spending HP');
     }
 
-    return res;
+    let abilityCard = JSON.parse(this.gameData.DrawAbilityCard()) as ICardAbility;
+    this.abilityCards.push(abilityCard);    
+
+    this.currentScores += abilityCard.abilityValue;
+
+    if(abilityCard.ability !== null){
+      this.actions.push(abilityCard.ability);
+    }
+
+    console.log(abilityCard);
+
+    return abilityCard;
   }
 
-  public drawAbilityCard(): ICardAbility | undefined {
-    return this.abilityDeck.DrawCard();
-  }
-
-  public setSelectedThreatCard(selectedCard: ICardThreat, unselected: Array<ICardThreat>): void{
-
-    this.router.navigate(['/fightThreat', selectedCard.id.toString()]);
-
-    console.log('GameControllerService: selected card = ' + selectedCard.id.toString());
-    console.log('GameControllerService: unselected cards');
-    console.log(unselected);
+  public onDraw(): void {
+    this.DrawAbilityCard();
   }
 
   public onTest(): void {

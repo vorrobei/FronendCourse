@@ -1,7 +1,7 @@
 <div class="fighting-display-container">
     <div class="fighting-display fighting-display-container__fighting-display">
-        <div class="threat-card-container fighting-display__threat-card-container">
-            <app-threat-display></app-threat-display>
+        <div class="threat-card-container fighting-display__threat-card-container">            
+            <app-threat-display [threatCard]="currentThreatCard"></app-threat-display>
         </div>
         <div class="player-container fighting-display__player-container">
             <app-player-display></app-player-display>

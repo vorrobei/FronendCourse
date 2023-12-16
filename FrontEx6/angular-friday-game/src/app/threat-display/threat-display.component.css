@@ -1,0 +1,45 @@
+.threat-display-container__threat-display {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    gap: 10px;
+}
+
+.threat-display__threat-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.threat-header__threat-name {
+    border-radius: 20px;
+    background-color: white;
+    border: 1px solid black;
+    padding: 5px;
+    width: 100%;    
+}
+
+.threat-header__threat-level {
+    border-radius: 30px;
+    background-color: white;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 2;
+    min-width: 50px;
+    padding: 5px;
+    font-size: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+}
+
+.threat-display__threat-card {
+    display: flex;
+    justify-content: center;
+}
+
+.threat-display__threat-footer {
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid black;
+}
+        

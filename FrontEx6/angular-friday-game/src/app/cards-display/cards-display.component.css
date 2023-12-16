@@ -1,13 +1,36 @@
 .cards-display-container {
     display: flex;
-    width: 100%;
+    flex-direction: column; 
+    gap: 5px;
+    padding: 5px;
 }
+
+.cards-display-container__display-scores {
+    display: flex;
+    align-items: center;    
+}
+
+.display-scores__current-score {
+    border-radius: 30px;
+    background-color: white;
+    width: 50px;    
+    border: 1px solid black;
+    text-align: center;
+    line-height: 2;
+    padding: 5px;
+    font-size: 2rem;
+    font-weight: 500;    
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}     
 
 .cards-display-container__cards_display{
     display: flex;
-    width: 100%;
-    padding: 20px;
+    padding: 10px;
     background-color: lightslategray;
-    height: 240px;
+    height: 700px;
     border-radius: 10px;
-}
+    flex-wrap: wrap;
+    gap: 5px;
+    align-content: flex-start;
+    overflow: auto;
+}    

@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
 import { CardThreatSelectorComponent } from './card-threat-selector/card-threat-selector.component';
-import { CardsDisplayComponent } from './cards-display/cards-display.component';
+import { ThreatFightingDisplayComponent } from './threat-fighting-display/threat-fighting-display.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: '/selectThreat', pathMatch: 'full' },    
-    { path: 'selectThreat', component: CardThreatSelectorComponent },
-    { path: 'fightThreat/:cardID', component: CardsDisplayComponent },    
+    { path: '', redirectTo: '/turn/new', pathMatch: 'full' },        
+    { path: 'turn/:status', component: CardThreatSelectorComponent },
+    { path: 'fightThreat', component: ThreatFightingDisplayComponent },
 ];

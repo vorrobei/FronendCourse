@@ -5,28 +5,33 @@
         "tr ac ac ac"
         "pl ac ac ac"
         "pl pc pc pc";
+    grid-template-columns: 1fr 3fr;        
 }
 
 .fighting-display__threat-card-container {
     grid-area: tr;
     background-color: aliceblue;
     border-radius: 10px;    
+    margin: 5px;
 }
 
 .fighting-display__player-container {
     grid-area: pl;
     background-color: antiquewhite;
     border-radius: 10px;    
+    margin: 5px;
 }
         
 .fighting-display__player-controls-container {
     grid-area: pc;
     background-color: azure;
     border-radius: 10px;        
+    margin: 5px;
 }
 
 .fighting-display__ability-cards-display {
     grid-area: ac;
-    background-color: azure;
+    background-color: beige;
     border-radius: 10px;        
+    margin: 5px;
 }    

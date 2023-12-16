@@ -11,13 +11,5 @@ import { NgFor } from '@angular/common';
 })
 export class CardThreatComponent {
   
-  @Input() 
-  card: ICardThreat = 
-    { 
-      id: 301, 
-      name: 'with the raft to the wreck', 
-      freeCards: 1, 
-      levelValues: [0, 1, 3], 
-      revardCardID: 201,
-    }
+  @Input() card: ICardThreat = {} as ICardThreat;        
 }

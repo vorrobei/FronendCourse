@@ -3,6 +3,7 @@ import { CardThreatComponent } from '../card-threat/card-threat.component';
 import { ICardThreat } from '../cards/card.treat';
 import { NgFor } from '@angular/common';
 import { GameControllerService } from '../game-controller.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-threat-selector',
@@ -11,33 +12,34 @@ import { GameControllerService } from '../game-controller.service';
   templateUrl: './card-threat-selector.component.html',
   styleUrl: './card-threat-selector.component.css'
 })
-export class CardThreatSelectorComponent {
-
-  private readonly cardCount: number = 2;
+export class CardThreatSelectorComponent {  
 
   cards: Array<ICardThreat> = [];        
 
-  constructor (private gameController: GameControllerService){}
+  constructor (private router: ActivatedRoute, private gameController: GameControllerService){}
 
   ngOnInit(): void {
-    this.cards = this.getThreatCardsForSelection();
+
+    if(this.router.snapshot.paramMap.get('status') === 'new')
+    {
+      this.gameController.StartGame();      
+    }  
+    
+    this.cards = this.gameController.NextTurn().threats;        
   }    
 
   onClick(card: ICardThreat): void {
-    this.sendSelectedCardToGameController(card);
+
+    this.SendSelectedCardToGameController(card);
   }
 
-  private getThreatCardsForSelection(): Array<ICardThreat>{
-    return this.gameController.drawThreatCards(this.cardCount);
-  }
-
-  private sendSelectedCardToGameController(card: ICardThreat): void {
+  private SendSelectedCardToGameController(card: ICardThreat): void {
 
     let selectedID: number | undefined = this.cards.indexOf(card);
 
     if(selectedID !== undefined){
       this.cards.splice(selectedID, 1);
-      this.gameController.setSelectedThreatCard(card, this.cards);
+      this.gameController.SetSelectedThreatCard(card, this.cards);
     }
   }
 }

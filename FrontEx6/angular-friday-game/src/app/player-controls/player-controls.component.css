@@ -5,9 +5,10 @@
 
 .player-controls-container__player-controls {
     display: flex;
-    justify-content: center;
+    justify-content: center;    
     width: 100%;
     padding: 20px;
+    gap: 10px
 }
         
 .player-controls__button-test {

@@ -1,5 +1,10 @@
 <div class="cards-display-container">
+    <div class="display-scores cards-display-container__display-scores">
+        <div class="current-score score display-scores__current-score">
+            {{gameController.currentScores}}            
+        </div>
+    </div>
     <div class="cards_display cards-display-container__cards_display">        
-        <app-card-ability *ngFor="let card of cards"></app-card-ability>
+        <app-card-ability *ngFor="let card of gameController.abilityCards" [card]="card"></app-card-ability>
     </div>
 </div>

@@ -15,7 +15,6 @@ export interface ICardDeck<T> {
     DrawCard(): T | undefined;
 
     DiscardCard(card: T): void;
-
 }
 
 export class CardDeck<T> implements ICardDeck<T> {
