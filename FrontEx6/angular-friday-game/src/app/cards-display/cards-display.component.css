@@ -11,7 +11,7 @@
 }
 
 .display-scores__current-score {
-    border-radius: 30px;
+    border-radius: 30px;    
     background-color: white;
     width: 50px;    
     border: 1px solid black;
@@ -23,7 +23,7 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }     
 
-.cards-display-container__cards_display{
+.cards-display-container__cards-display{
     display: flex;
     padding: 10px;
     background-color: lightslategray;
@@ -33,4 +33,8 @@
     gap: 5px;
     align-content: flex-start;
     overflow: auto;
-}    
+}
+
+.cards-display__card-container{
+    position: relative;
+}

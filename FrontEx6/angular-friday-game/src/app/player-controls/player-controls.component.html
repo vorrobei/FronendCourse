@@ -1,10 +1,11 @@
 <div class="player-controls-container">
     <div class="player-actions player-controls-container__player-actions">
-        <input class="player-actions__action" type="button" *ngFor="let action of gameController.actions" value={{action.name}}>
+        <input class="player-actions__action" type="button" *ngFor="let action of gameController.actions" value={{action.name}} (click)="onAction(action)">
     </div>
     <div class="player-controls player-controls-container__player-controls">
         <button class="button-draw player-controls__button-draw" type="button" (click)="onDraw()">Draw Ability</button>
-        <button class="button-turn-end player-controls__button-turn-end" type="button" (click)="onTurnEnd()">End Turn</button>
+        <button class="button-fight-end player-controls__button-fight-end" type="button" (click)="onEndFight()">End Fight</button>
+        <button class="button-turn-end player-controls__button-turn-end" type="button" (click)="onEndTurn()">End Turn</button>
         <button class="button-test player-controls__button-test" type="button" (click)="onTest()">Test</button>
     </div>
 </div>

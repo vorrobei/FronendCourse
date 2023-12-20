@@ -1,0 +1,13 @@
+.player-container__player {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: 5px;
+}   
+
+.player__HP {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;    
+}
+            

@@ -15,9 +15,9 @@ export class GameDataService {
   private readonly threatCount: number = 2;
 
   // threat deck
-  private threatDeck: ICardDeck<ICardThreat> = new CardDeck<ICardThreat>();  
+  private threatDeck: ICardDeck<ICardThreat> = new CardDeck<ICardThreat>('Threat deck');  
   // ability deck
-  private abilityDeck: ICardDeck<ICardAbility> = new CardDeck<ICardAbility>();  
+  private abilityDeck: ICardDeck<ICardAbility> = new CardDeck<ICardAbility>('Ability deck');  
 
   // player
   private player: PlayerDTO = new PlayerDTO(22, 20);
@@ -32,20 +32,18 @@ export class GameDataService {
     this.threatDeck.Shuffle();
 
     this.abilityDeck.cards = AbilityCards.filter((card) => { return card.id < 200 });
-    this.abilityDeck.Shuffle();    
+    this.abilityDeck.Shuffle();        
 
     this.threatLevel = 1;
 
     this.player = new PlayerDTO(22, 20);
 
     console.log('gamedata StartNewGame');
-    console.log('ability deck');
-    console.log(this.abilityDeck);    
 
     return JSON.stringify(this.player);
   }
   
-  public NextTurn(): string {
+  public NextTurn(): string {    
     
     if(this.threatDeck.cards.length === 0){
       if(this.threatLevel < 3) {
@@ -64,12 +62,23 @@ export class GameDataService {
       threatCount = 1;
     }
 
-    for(let i = 0; i < threatCount; i++){
-      let card: ICardThreat | undefined = this.threatDeck.DrawCard();
+    for(let i = 0; i < threatCount; i++){      
+
+      let card: ICardThreat | undefined = this.threatDeck.DrawCard();      
+
       if(card !== undefined){
+
+        console.log('draw threat card');
+        console.log(card);
+
         threats.push(card);
       }    
     }    
+
+    console.log('ability deck');
+    console.log(this.abilityDeck);    
+    console.log('threat deck');
+    console.log(this.threatDeck);        
 
     return JSON.stringify(new NextTurnDTO(this.player, this.threatLevel, threats));
   }
@@ -78,7 +87,7 @@ export class GameDataService {
     return JSON.stringify(this.abilityDeck.DrawCard());
   }
 
-  public SetTurnResult(result: string): void {
+  public EndTurn(result: string): void {
 
   }
 }

@@ -14,10 +14,9 @@ export class ThreatDisplayComponent {
   
   @Input() public threatCard: ICardThreat = {} as ICardThreat;
 
-  constructor(private gameController: GameControllerService){}
+  constructor(public gameController: GameControllerService){}
 
-  ngOnInit(): void {
-        
+  ngOnInit(): void {        
     this.threatCard = this.gameController.currentThreatCard;  
   }
   

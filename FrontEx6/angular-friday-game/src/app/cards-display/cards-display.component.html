@@ -4,7 +4,10 @@
             {{gameController.currentScores}}            
         </div>
     </div>
-    <div class="cards_display cards-display-container__cards_display">        
-        <app-card-ability *ngFor="let card of gameController.abilityCards" [card]="card"></app-card-ability>
+    <div class="cards-display cards-display-container__cards-display">        
+        <div *ngFor="let card of gameController.abilityCards" class="cards-display__card-container">
+            <app-card-ability [card]="card" class="card-container__card"></app-card-ability>            
+            <app-card-ability-shadow [card]="card" [selector]="selector"></app-card-ability-shadow>
+        </div>
     </div>
 </div>

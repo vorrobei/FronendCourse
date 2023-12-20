@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ICardThreat } from '../cards/card.treat';
+import { GameControllerService } from '../game-controller.service';
 
 @Component({
   selector: 'app-player-display',
@@ -10,12 +11,5 @@ import { ICardThreat } from '../cards/card.treat';
 })
 export class PlayerDisplayComponent {
   
-  threatCard: ICardThreat = { 
-    id: 310, 
-    name: 'with the raft to the wreck', 
-    freeCards: 1, 
-    levelValues: [0, 1, 3], 
-    revardCardID: 210,
-  };
-
+  constructor (public gameController: GameControllerService) {}
 }

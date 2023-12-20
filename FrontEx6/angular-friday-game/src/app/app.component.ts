@@ -6,6 +6,7 @@ import { routes } from './app.routes';
 import { ICardThreat } from './cards/card.treat';
 import { ThreatCards } from './cards/card.threat.deck.mock';
 import { CardThreatComponent } from './card-threat/card-threat.component';
+import { GameControllerService } from './game-controller.service';
 
 @Component({
   selector: 'app-root',
@@ -14,9 +15,13 @@ import { CardThreatComponent } from './card-threat/card-threat.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  
-  card: ICardThreat = ThreatCards[0];
+export class AppComponent {  
 
   protected title = 'angular-friday-game';  
+
+  constructor(private gameController: GameControllerService) {}
+
+  ngOnInit(){
+    this.gameController.StartGame();    
+  }
 }

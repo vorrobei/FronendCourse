@@ -8,6 +8,5 @@ export interface ICardThreat {
 
     levelValues: Array<number>;
 
-    revardCardID: number;
-
+    revardCardID: number;    
 }

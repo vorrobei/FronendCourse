@@ -1,8 +1,30 @@
+import { GameControllerService } from "../game-controller.service";
+
+export enum ABILITY_CODE {
+    NONE,
+    ADD2LIVES,
+    ADD1LIFE,
+    EXCHANGE1,
+    EXCHANGE2,
+    COPY,
+    BELOWTHEPILE,
+    DESTROY,
+    PHASELESS,
+    ADD2CARDS,
+    ADD1CARD,
+    DOUBLE,
+    SORT3CARS
+}
+
 export interface ICardAbilityAction {    
 
-    name: string;    
+    readonly code: ABILITY_CODE;
 
-    Exec(): void;
+    readonly name: string;    
+
+    isActivated: boolean;    
+    
+    Exec: (gameController: GameControllerService) => void;
 
 }
 
@@ -22,108 +44,168 @@ export interface ICardAbility {
 
 export class CardAbilityActionCopy implements ICardAbilityAction {
 
-    name: string = 'copy';
+    public readonly code: ABILITY_CODE = ABILITY_CODE.COPY;
 
-    Exec(): void {
+    public readonly name: string = 'copy';    
+
+    isActivated: boolean = false;
+
+    Exec(gameController: GameControllerService): void {
         throw new Error("Method not implemented.");
     }
 }
 
 export class CardAbilityAction1xBelowThePile implements ICardAbilityAction {
 
-    name: string = '1x below the pile';
+    public readonly code: ABILITY_CODE = ABILITY_CODE.BELOWTHEPILE;
 
-    Exec(): void {
+    public readonly name: string = '1x below the pile';
+
+    isActivated: boolean = false;    
+
+    Exec(gameController: GameControllerService): void {
         throw new Error("Method not implemented.");
     }
 }
 
 export class CardAbilityAction1xDestroy implements ICardAbilityAction {
 
+    code: ABILITY_CODE = ABILITY_CODE.DESTROY;
+
     name: string = '1x destroy';
 
-    Exec(): void {
+    isActivated: boolean = false;
+
+    Exec(gameController: GameControllerService): void {
         throw new Error("Method not implemented.");
     }
 }
 
 export class CardAbilityActionPhaseLess implements ICardAbilityAction {
 
+    code: ABILITY_CODE = ABILITY_CODE.PHASELESS;
+
     name: string = 'phase -1';
 
-    Exec(): void {
+    isActivated: boolean = false;
+
+    Exec(gameController: GameControllerService): void {
         throw new Error("Method not implemented.");
     }
 }
 
 export class CardAbilityAdd1Life implements ICardAbilityAction {
 
+    code: ABILITY_CODE = ABILITY_CODE.ADD1LIFE;
+
     name: string = '+1 life';
 
-    Exec(): void {
+    isActivated: boolean = false;
+
+    Exec(gameController: GameControllerService): void {
         throw new Error("Method not implemented.");
     }
 }
 
 export class CardAbilityAdd2Life implements ICardAbilityAction {
 
-    name: string = '+2 life';
+    public readonly code: ABILITY_CODE = ABILITY_CODE.ADD2LIVES;
 
-    Exec(): void {
-        throw new Error("Method not implemented.");
+    public readonly name: string = '+2 lives';
+
+    isActivated: boolean = false;
+
+    constructor () {}
+
+    public Exec(gameController: GameControllerService): void {
+
+        if(gameController !== null && !this.isActivated){                                
+
+            gameController.player.currentPlayerHP += 2;
+            
+            if(gameController.player.currentPlayerHP > gameController.player.maxPlayerHP){
+                gameController.player.currentPlayerHP = gameController.player.maxPlayerHP;
+            }
+
+            this.isActivated = true;
+        }
     }
 }
 
 export class CardAbilityActionAdd2Cards implements ICardAbilityAction {
 
+    code: ABILITY_CODE = ABILITY_CODE.ADD2CARDS;
+
     name: string = '+2 cards';
 
-    Exec(): void {
+    isActivated: boolean = false;
+
+    Exec(gameController: GameControllerService): void {
         throw new Error("Method not implemented.");
     }
 }
 
 export class CardAbilityActionAdd1Cards implements ICardAbilityAction {
 
+    code: ABILITY_CODE = ABILITY_CODE.ADD1CARD;
+
     name: string = '+1 card';
 
-    Exec(): void {
+    isActivated: boolean = false;
+
+    Exec(gameController: GameControllerService): void {
         throw new Error("Method not implemented.");
     }
 }
 
 export class CardAbilityAction2xExchange implements ICardAbilityAction {
 
+    code: ABILITY_CODE = ABILITY_CODE.EXCHANGE2;
+
     name: string = '2x exchange';
 
-    Exec(): void {
+    isActivated: boolean = false;
+
+    Exec(gameController: GameControllerService): void {
         throw new Error("Method not implemented.");
     }
 }
 
 export class CardAbilityAction1xExchange implements ICardAbilityAction {
 
+    code: ABILITY_CODE = ABILITY_CODE.EXCHANGE1;
+
     name: string = '1x exchange';
 
-    Exec(): void {
+    isActivated: boolean = false;
+
+    Exec(gameController: GameControllerService): void {
         throw new Error("Method not implemented.");
     }
 }
 
 export class CardAbilityAction1xDouble implements ICardAbilityAction {
 
+    code: ABILITY_CODE = ABILITY_CODE.DOUBLE;
+
     name: string = '1x double';
 
-    Exec(): void {
+    isActivated: boolean = false;
+
+    Exec(gameController: GameControllerService): void {
         throw new Error("Method not implemented.");
     }
 }
 
 export class CardAbilityActionSort3Card implements ICardAbilityAction {
 
+    code: ABILITY_CODE = ABILITY_CODE.SORT3CARS;
+
     name: string = 'sort 3 cards';
 
-    Exec(): void {
+    isActivated: boolean = false;
+
+    Exec(gameController: GameControllerService): void {
         throw new Error("Method not implemented.");
     }
 }

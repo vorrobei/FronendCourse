@@ -1,4 +1,4 @@
-import { CardAbilityAction1xBelowThePile, CardAbilityAction1xDestroy, CardAbilityAction1xDouble, CardAbilityAction1xExchange, CardAbilityAction2xExchange, 
+import { ABILITY_CODE, CardAbilityAction1xBelowThePile, CardAbilityAction1xDestroy, CardAbilityAction1xDouble, CardAbilityAction1xExchange, CardAbilityAction2xExchange, 
     CardAbilityActionAdd1Cards, CardAbilityActionAdd2Cards, CardAbilityActionCopy, CardAbilityActionPhaseLess, CardAbilityActionSort3Card, CardAbilityAdd1Life, 
         CardAbilityAdd2Life, ICardAbility } from "./card.ability";
 
@@ -147,7 +147,7 @@ export const AbilityCards: Array<ICardAbility> = [
             id: 203, 
             name: 'realization', 
             abilityValue: 0, 
-            ability: new CardAbilityAction1xBelowThePile(),
+            ability: new CardAbilityAction1xDestroy(),
             discardCost: 1
         },           
         { 

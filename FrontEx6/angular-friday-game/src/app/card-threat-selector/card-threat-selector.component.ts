@@ -14,7 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CardThreatSelectorComponent {  
 
-  cards: Array<ICardThreat> = [];        
+  cards: Array<ICardThreat> = [];      
 
   constructor (private router: ActivatedRoute, private gameController: GameControllerService){}
 
@@ -23,9 +23,7 @@ export class CardThreatSelectorComponent {
     if(this.router.snapshot.paramMap.get('status') === 'new')
     {
       this.gameController.StartGame();      
-    }  
-    
-    this.cards = this.gameController.NextTurn().threats;        
+    }        
   }    
 
   onClick(card: ICardThreat): void {

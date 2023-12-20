@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { GameControllerService } from '../game-controller.service';
-import { ICardAbilityAction } from '../cards/card.ability';
+import { CardAbilityAdd2Life, ICardAbilityAction } from '../cards/card.ability';
 import { NgFor } from '@angular/common';
 
 @Component({
@@ -12,8 +12,6 @@ import { NgFor } from '@angular/common';
 })
 export class PlayerControlsComponent {
 
-  public actions: Array<ICardAbilityAction> = new Array<ICardAbilityAction>();
-
   constructor (public gameController: GameControllerService){    
   }
 
@@ -21,11 +19,24 @@ export class PlayerControlsComponent {
     this.gameController.onDraw();
   }
 
-  public onTurnEnd(): void {    
-    this.gameController.onTest();
+  public onEndFight(){
+    this.gameController.onEndFight();  
+  }
+
+  public onEndTurn(): void {    
+    this.gameController.onEndTurn();
   }
 
   public onTest(): void {    
     this.gameController.onTest();
+  }
+
+  public onAction(mycard: CardAbilityAdd2Life){
+
+    if(mycard instanceof CardAbilityAdd2Life){
+      console.log('try to exec');
+    }
+    console.log(mycard);    
+    mycard.Exec(this.gameController);
   }
 }

@@ -24,7 +24,11 @@ export class CardDeck<T> implements ICardDeck<T> {
     // сброшенные карты
     discardedCards: Array<T> = new Array<T>();
     
-    name: string = "Threat Deck";
+    name: string = "Deck";
+
+    constructor(deckName: string){
+        this.name = deckName;
+    }
     
     public Shuffle(): void {  
         
