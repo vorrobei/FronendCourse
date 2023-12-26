@@ -1,5 +1,29 @@
 <div class="card-threat-container">
     <div class="card-threat card-threat-container__card-threat">
+        <div class="card-threat-header card-threat__card-threat-header">
+            <div class="card-threat-header__title">
+                {{card.name}}
+            </div>            
+            <div class="threat-level card-threat-header__threat-level">
+                <span class="threat-level__text">level {{gameController.currentThreatLevel}}</span>
+                <span class="threat-level__value">{{card.levelValues[gameController.currentThreatLevel - 1]}}</span>
+            </div>         
+        </div>
+        <div class="card-threat-body card-threat__card-threat-body">
+            <div class="free-cards card-threat-body__rewards">
+                <app-card-ability [card]="card.rewardCard"></app-card-ability>  
+            </div>
+            <div class="free-cards card-threat-body__free-cards">
+                <span class="free-cards__text">free cards</span>
+                <span class="free-cards__count">{{card.freeCards}}</span>                                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+<div class="card-threat-container">
+    <div class="card-threat card-threat-container__card-threat">
         <div class="card-title card-threat__card-title">        
             <span class="card-title__text">{{card.name}}</span>
         </div>
@@ -8,6 +32,7 @@
             <div class="threat-levels card-footer__threat-levels">
                 <div *ngFor="let level of card.levelValues" class="threat-levels__level">{{level}}</div>
             </div>            
-        </div>
+        </div>    
     </div>
 </div>
+-->

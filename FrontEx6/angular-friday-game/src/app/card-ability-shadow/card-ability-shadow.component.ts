@@ -17,12 +17,10 @@ export class CardAbilityShadowComponent {
   @Input() public selector: ICardSelector | null = {} as ICardSelector;  
 
   public onClick(): void {
+
     console.log('select card');
     console.log(this.card);
 
     this.selector?.SelectCard(this.card);
-
-    console.log('selector cards');
-    console.log(this.selector?.selected);
   }
 }

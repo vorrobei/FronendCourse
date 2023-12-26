@@ -1,19 +1,7 @@
 <div class="threat-display-container">
-    <div class="threat-display threat-display-container__threat-display">
-        <div class="threat-header threat-display__threat-header">            
-            <div class="threat-header__threat-name">
-                Threat Level 1
-            </div>
-            <div class="threat-header__threat-level">
-                {{threatCard.levelValues[gameController.currentThreatLevel - 1]}}
-            </div>
-        </div>        
+    <div class="threat-display threat-display-container__threat-display">     
         <div class="threat-card threat-display__threat-card">            
             <app-card-threat [card]="threatCard"></app-card-threat>
         </div>
-        <div class="threat-reward threat-display__threat-reward">            
-            <div class="threat-reward__revard-text">Reward</div>
-            <div class="threat-reward__threat-level"></div>
-        </div>            
     </div>
 </div>

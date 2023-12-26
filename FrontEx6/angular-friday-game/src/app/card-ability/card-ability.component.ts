@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { ABILITY_CODE, CardAbilityAction1xDestroy, CardAbilityAdd2Life, ICardAbility } from '../cards/card.ability';
+import { Component, Input, SimpleChanges } from '@angular/core';
+import { ICardAbility } from '../cards/card.ability';
 
 @Component({
   selector: 'app-card-ability',
@@ -10,12 +10,24 @@ import { ABILITY_CODE, CardAbilityAction1xDestroy, CardAbilityAdd2Life, ICardAbi
 })
 export class CardAbilityComponent {
   
-  @Input() card: ICardAbility = {    
+  @Input() card: ICardAbility | undefined = {    
     id: 0, 
     name: 'unknown', 
     abilityValue: 0, 
     ability: null,
     discardCost: 1
+  }
+
+  public ngOnChanges(changes: SimpleChanges) {
+        
+    this.OnChangeCard(changes['card'].currentValue);
+
+    // You can also use changes['card'].previousValue and 
+    // changes['card'].firstChange for comparing old and new values    
+  }
+
+  private OnChangeCard(card: ICardAbility | undefined){
+
   }
 
 }

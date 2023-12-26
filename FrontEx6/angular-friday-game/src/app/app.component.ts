@@ -22,6 +22,6 @@ export class AppComponent {
   constructor(private gameController: GameControllerService) {}
 
   ngOnInit(){
-    this.gameController.StartGame();    
+    this.gameController.NextTurn(true);    
   }
 }

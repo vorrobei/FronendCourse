@@ -30,9 +30,6 @@ export class CardsDisplayComponent {
     }else{
       this.selector = null;
     }
-
-    console.log('on mode change');
-    console.log(mode);
     
     this.mode = mode;
   }
@@ -44,7 +41,7 @@ export class CardsDisplayComponent {
   }
 
   ngOnDestroy(){
-    console.log('unsubscribe');
+    console.log('card display unsubscribe mode change event');
     this.modeChangeSubscription.unsubscribe();
   }
 }

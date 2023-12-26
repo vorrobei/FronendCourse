@@ -6,6 +6,7 @@ import { ThreatCards } from './cards/card.threat.deck.mock';
 import { AbilityCards } from './cards/card.ability.deck.mock';
 import { NextTurnDTO } from './game-domain/next-turn-dto';
 import { PlayerDTO } from './game-domain/player-dto';
+import { TurnResultDTO } from './game-domain/turn-result-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,8 @@ export class GameDataService {
 
   // threat deck
   private threatDeck: ICardDeck<ICardThreat> = new CardDeck<ICardThreat>('Threat deck');  
+  // player deck
+  private playerDeck: ICardDeck<ICardAbility> = new CardDeck<ICardAbility>('Player deck');  
   // ability deck
   private abilityDeck: ICardDeck<ICardAbility> = new CardDeck<ICardAbility>('Ability deck');  
 
@@ -31,8 +34,10 @@ export class GameDataService {
     this.threatDeck.cards = ThreatCards;
     this.threatDeck.Shuffle();
 
-    this.abilityDeck.cards = AbilityCards.filter((card) => { return card.id < 200 });
-    this.abilityDeck.Shuffle();        
+    this.playerDeck.cards = AbilityCards.filter((card) => { return card.id < 200 });
+    this.playerDeck.Shuffle();        
+
+    this.abilityDeck.cards = AbilityCards.filter((card) => { return card.id >= 200 && card.id < 400 });        
 
     this.threatLevel = 1;
 
@@ -50,16 +55,16 @@ export class GameDataService {
         this.threatDeck.Shuffle();
         this.threatLevel++;
       }else{
-        console.log('boss fight');
-      }
+        console.log('boss fight will be in next verions');
+      }      
     }    
 
-    let threatCount = this.threatCount;
-
+    // threats for next turn
     let threats: Array<ICardThreat> = [];    
-
-    if(this.threatDeck.cards.length === 1){
-      threatCount = 1;
+    
+    let threatCount = this.threatCount;
+    if(this.threatDeck.cards.length < threatCount){
+      threatCount = threatCount - this.threatDeck.cards.length;
     }
 
     for(let i = 0; i < threatCount; i++){      
@@ -68,6 +73,9 @@ export class GameDataService {
 
       if(card !== undefined){
 
+        // set reward ability
+        card.rewardCard = this.DrawAbilityCardByID(card.rewardCardID);
+
         console.log('draw threat card');
         console.log(card);
 
@@ -75,19 +83,59 @@ export class GameDataService {
       }    
     }    
 
-    console.log('ability deck');
-    console.log(this.abilityDeck);    
+    console.log('player deck');
+    console.log(this.playerDeck);    
     console.log('threat deck');
     console.log(this.threatDeck);        
 
     return JSON.stringify(new NextTurnDTO(this.player, this.threatLevel, threats));
   }
 
-  public DrawAbilityCard(): string {
-    return JSON.stringify(this.abilityDeck.DrawCard());
+  public DrawPlayerCard(): string {
+
+    let card: ICardAbility | undefined = this.playerDeck.DrawCard();
+
+    if(card === undefined){
+      this.playerDeck.Shuffle();
+      card = this.playerDeck.DrawCard();
+    }
+
+    return JSON.stringify(card);
   }
 
-  public EndTurn(result: string): void {
+  private DrawAbilityCardByID(cardID: number): ICardAbility | undefined {
+    return this.abilityDeck.DrawCardByID(cardID);
+  }
+
+  public EndTurn(resultDTO: string): void {
+
+    let turnResult: TurnResultDTO = JSON.parse(resultDTO) as TurnResultDTO;
+
+    console.log('turn result');
+    console.log(turnResult);    
+
+    if(turnResult === undefined) return;
+
+    for(let ability of turnResult.discardedAbility){
+      this.playerDeck.DiscardCard(ability);
+    }    
+
+    for(let ability of turnResult.destroyedAbility){
+      this.playerDeck.DestroyCard(ability);
+    }
+
+    for(let threat of turnResult.discardedThreat){      
+      this.threatDeck.DiscardCard(threat);
+    }        
+
+    for(let threat of turnResult.destroyedThreat){      
+      this.threatDeck.DestroyCard(threat);
+    }    
+
+    console.log('player deck');
+    console.log(this.playerDeck);    
+    console.log('threat deck');
+    console.log(this.threatDeck);     
 
   }
 }

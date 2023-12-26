@@ -19,11 +19,7 @@ export class CardThreatSelectorComponent {
   constructor (private router: ActivatedRoute, private gameController: GameControllerService){}
 
   ngOnInit(): void {
-
-    if(this.router.snapshot.paramMap.get('status') === 'new')
-    {
-      this.gameController.StartGame();      
-    }        
+    this.cards = this.gameController.turn.threats;        
   }    
 
   onClick(card: ICardThreat): void {
@@ -35,9 +31,8 @@ export class CardThreatSelectorComponent {
 
     let selectedID: number | undefined = this.cards.indexOf(card);
 
-    if(selectedID !== undefined){
-      this.cards.splice(selectedID, 1);
-      this.gameController.SetSelectedThreatCard(card, this.cards);
+    if(selectedID !== undefined){      
+      this.gameController.SetSelectedThreatCard(card);
     }
   }
 }

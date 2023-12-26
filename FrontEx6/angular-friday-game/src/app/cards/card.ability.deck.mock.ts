@@ -1,20 +1,23 @@
-import { ABILITY_CODE, CardAbilityAction1xBelowThePile, CardAbilityAction1xDestroy, CardAbilityAction1xDouble, CardAbilityAction1xExchange, CardAbilityAction2xExchange, 
-    CardAbilityActionAdd1Cards, CardAbilityActionAdd2Cards, CardAbilityActionCopy, CardAbilityActionPhaseLess, CardAbilityActionSort3Card, CardAbilityAdd1Life, 
-        CardAbilityAdd2Life, ICardAbility } from "./card.ability";
+import { 
+    CardAbilityActionAddCards,
+    CardAbilityActionChangeLife,
+    CardAbilityActionPhaseLess,
+    ICardAbility 
+} from "./card.ability";
 
 export const AbilityCards: Array<ICardAbility> = [
         { 
             id: 101, 
             name: 'distracted', 
             abilityValue: -1, 
-            ability: null,
+            ability: new CardAbilityActionAddCards(2),
             discardCost: 1
         },
         { 
             id: 102, 
             name: 'distracted', 
             abilityValue: -1, 
-            ability: null,
+            ability: new CardAbilityActionAddCards(1),
             discardCost: 1
         },
         { 
@@ -98,7 +101,7 @@ export const AbilityCards: Array<ICardAbility> = [
             id: 114, 
             name: 'eating', 
             abilityValue: 0, 
-            ability: new CardAbilityAdd2Life(),
+            ability: new CardAbilityActionChangeLife(2),
             discardCost: 1
         },            
         { 
@@ -128,7 +131,8 @@ export const AbilityCards: Array<ICardAbility> = [
             abilityValue: 2, 
             ability: null,
             discardCost: 1
-        },   
+        },
+        /*   
         { 
             id: 201, 
             name: 'mimicry', 
@@ -149,42 +153,44 @@ export const AbilityCards: Array<ICardAbility> = [
             abilityValue: 0, 
             ability: new CardAbilityAction1xDestroy(),
             discardCost: 1
-        },           
+        },   
+        */        
         { 
             id: 204, 
             name: 'books', 
             abilityValue: 0, 
             ability: new CardAbilityActionPhaseLess(),
             discardCost: 1
-        },            
+        },                    
         { 
             id: 205, 
             name: 'food', 
             abilityValue: 0, 
-            ability: new CardAbilityAdd1Life(),
+            ability: new CardAbilityActionChangeLife(1),
             discardCost: 1
         },  
         { 
             id: 206, 
             name: 'food', 
             abilityValue: 0, 
-            ability: new CardAbilityAdd1Life(),
+            ability: new CardAbilityActionChangeLife(1),
             discardCost: 1            
-        },                
+        },                        
         { 
             id: 207, 
             name: 'equipment', 
             abilityValue: 0, 
-            ability: new CardAbilityActionAdd2Cards(),
+            ability: new CardAbilityActionAddCards(2),
             discardCost: 1
         },  
         { 
             id: 208, 
             name: 'equipment', 
             abilityValue: 0, 
-            ability: new CardAbilityActionAdd2Cards(),
+            ability: new CardAbilityActionAddCards(2),
             discardCost: 1
         },   
+        /*
         { 
             id: 209, 
             name: 'strategy', 
@@ -227,20 +233,21 @@ export const AbilityCards: Array<ICardAbility> = [
             ability: new CardAbilityAction1xDouble(),
             discardCost: 1
         },     
+        */
         { 
             id: 215, 
             name: 'food', 
             abilityValue: 1, 
-            ability: new CardAbilityAdd1Life(),
+            ability: new CardAbilityActionChangeLife(1),
             discardCost: 1
         },     
         { 
             id: 216, 
             name: 'food', 
             abilityValue: 1, 
-            ability: new CardAbilityAdd1Life(),
+            ability: new CardAbilityActionChangeLife(1),
             discardCost: 1
-        },                 
+        },                       
         { 
             id: 217, 
             name: 'weapon', 
@@ -254,7 +261,8 @@ export const AbilityCards: Array<ICardAbility> = [
             abilityValue: 2, 
             ability: null,
             discardCost: 1
-        },                    
+        },
+        /*                    
         { 
             id: 219, 
             name: 'strategy', 
@@ -276,20 +284,22 @@ export const AbilityCards: Array<ICardAbility> = [
             ability: new CardAbilityAction1xDestroy(),
             discardCost: 1
         },    
+        */
         { 
             id: 222, 
             name: 'food', 
             abilityValue: 2, 
-            ability: new CardAbilityAdd1Life(),
+            ability: new CardAbilityActionChangeLife(1),
             discardCost: 1
         },                                
         { 
             id: 223, 
             name: 'experience', 
             abilityValue: 2, 
-            ability: new CardAbilityActionAdd1Cards(),
+            ability: new CardAbilityActionAddCards(1),
             discardCost: 1
-        },                                
+        },                  
+        /*              
         { 
             id: 224, 
             name: 'vision', 
@@ -310,14 +320,16 @@ export const AbilityCards: Array<ICardAbility> = [
             abilityValue: 3, 
             ability: new CardAbilityAction1xExchange(),
             discardCost: 1
-        },                                
+        },
+        */                                
         { 
             id: 227, 
             name: 'experience', 
             abilityValue: 3, 
-            ability: new CardAbilityActionAdd1Cards(),
+            ability: new CardAbilityActionAddCards(1),
             discardCost: 1
         },                                
+        /*
         { 
             id: 228, 
             name: 'vision', 
@@ -325,6 +337,7 @@ export const AbilityCards: Array<ICardAbility> = [
             ability: new CardAbilityActionSort3Card(),
             discardCost: 1
         },          
+        */
         { 
             id: 229, 
             name: 'weapon', 
@@ -339,4 +352,85 @@ export const AbilityCards: Array<ICardAbility> = [
             ability: null,
             discardCost: 1
         },  
+        /*
+        { 
+            id: 401, 
+            name: 'scared', 
+            abilityValue: 0, 
+            ability: new CardAbilityActionHighestCardZero(),
+            discardCost: 2
+        },  
+        { 
+            id: 402, 
+            name: 'scared', 
+            abilityValue: 0, 
+            ability: new CardAbilityActionHighestCardZero(),
+            discardCost: 2
+        },
+        */  
+        { 
+            id: 403, 
+            name: 'hungry', 
+            abilityValue: 0, 
+            ability: new CardAbilityActionChangeLife(-1),
+            discardCost: 2
+        },  
+        { 
+            id: 404, 
+            name: 'very hungry', 
+            abilityValue: 0, 
+            ability: new CardAbilityActionChangeLife(-2),
+            discardCost: 2
+        },  
+        /*
+        { 
+            id: 405, 
+            name: 'stop', 
+            abilityValue: 0, 
+            ability: new CardAbilityActionStop(),
+            discardCost: 2
+        },  
+        */
+        { 
+            id: 406, 
+            name: 'distracted', 
+            abilityValue: -1, 
+            ability: null,
+            discardCost: 2
+        },  
+        { 
+            id: 407, 
+            name: 'stupid', 
+            abilityValue: -2, 
+            ability: null,
+            discardCost: 2
+        },    
+        { 
+            id: 408, 
+            name: 'stupid', 
+            abilityValue: -2, 
+            ability: null,
+            discardCost: 2
+        },   
+        { 
+            id: 409, 
+            name: 'very stupid', 
+            abilityValue: -3, 
+            ability: null,
+            discardCost: 2
+        },   
+        { 
+            id: 410, 
+            name: 'moronic', 
+            abilityValue: -4, 
+            ability: null,
+            discardCost: 2
+        },  
+        { 
+            id: 411, 
+            name: 'suicidal', 
+            abilityValue: -5, 
+            ability: null,
+            discardCost: 2
+        },                                                                                             
     ]

@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { GameControllerService } from '../game-controller.service';
-import { CardAbilityAdd2Life, ICardAbilityAction } from '../cards/card.ability';
-import { NgFor } from '@angular/common';
+import { ICardAbilityAction } from '../cards/card.ability';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-player-controls',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, NgIf],
   templateUrl: './player-controls.component.html',
   styleUrl: './player-controls.component.css'
 })
@@ -19,6 +19,10 @@ export class PlayerControlsComponent {
     this.gameController.onDraw();
   }
 
+  public onAddDraw(): void {    
+    this.gameController.onDraw(true);
+  }  
+
   public onEndFight(){
     this.gameController.onEndFight();  
   }
@@ -27,16 +31,23 @@ export class PlayerControlsComponent {
     this.gameController.onEndTurn();
   }
 
+  public GetDrawButtonText(){
+    return this.gameController.freeCardsCounter > 0 ? 'Draw Card for FREE' : 'Draw Card for -1HP';
+  }
+
+  public GetExtraDrawButtonText(){
+    return 'Draw extra card for FREE';
+  }  
+
   public onTest(): void {    
     this.gameController.onTest();
   }
 
-  public onAction(mycard: CardAbilityAdd2Life){
+  public onAction(mycard: ICardAbilityAction){
 
-    if(mycard instanceof CardAbilityAdd2Life){
-      console.log('try to exec');
-    }
+    console.log('try to exec');
     console.log(mycard);    
+
     mycard.Exec(this.gameController);
   }
 }

@@ -1,4 +1,100 @@
+.card-threat-container {
+    display: flex;
+}
+
 .card-threat-container__card-threat {
+    width: 280px;
+    height: 440px;
+    background-color: lightgrey;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.8rem;    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-threat__card-threat-header {
+    display: flex;    
+    gap: 5px;
+}
+
+.card-threat-header__title {
+    flex-grow: 4;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;   
+    text-align: center;
+    padding: 10px;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-threat-header__threat-level {
+    flex-grow: 0;
+    flex-shrink: 0;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;   
+    text-align: center;
+    padding: 10px;    
+    display: flex;    
+    flex-direction: column;
+    width: 40px;
+}
+
+.threat-level__text {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.6rem;    
+}
+
+
+.threat-level__value {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;    
+    font-weight: 600;
+}
+
+.card-threat__card-threat-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-threat-body__free-cards {
+    background-color: white;
+    border-radius: 0px;
+    border: 1px solid black;  
+    align-self: flex-end;    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    text-align: center;    
+}
+
+.free-cards__text {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.6rem;    
+}
+
+.free-cards__count {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.6rem;    
+    font-weight: 400; 
+}
+
+/*
+        <div class="card-threat-body card-threat__card-threat-body">
+            <div class="free-cards card-threat-body__rewards">
+                <app-card-ability [card]="card.rewardCard"></app-card-ability>  
+            </div>
+            <div class="free-cards card-threat-body__free-cards">
+*/
+
+/*.card-threat-container__card-threat {
     width: 140px;
     height: 200px;
     background-color: lightgrey;
@@ -61,3 +157,4 @@
     border: 1px solid black;
     padding: 10px 10px;
 }
+*/

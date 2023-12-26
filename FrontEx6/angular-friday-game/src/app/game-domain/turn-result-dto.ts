@@ -7,8 +7,6 @@ export class TurnResultDTO {
 
     public currentHP: number = 0;
 
-    public rewardedAbility: Array<ICardAbility> = new Array<ICardAbility>();
-
     public discardedAbility: Array<ICardAbility> = new Array<ICardAbility>();
 
     public destroyedAbility: Array<ICardAbility> = new Array<ICardAbility>();
@@ -17,5 +15,6 @@ export class TurnResultDTO {
 
     public destroyedThreat: Array<ICardThreat> = new Array<ICardThreat>();    
 
-    constructor (){}
+    constructor (){        
+    }
 }
