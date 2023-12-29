@@ -1,40 +1,127 @@
-import { ICardAbility } from "./card.ability";
+import { Subject } from "rxjs";
+import { CardAbilityContainer } from "../game-controller.service";
 
 export interface ICardSelector {
 
-    selected: Array<ICardAbility>;
+    title: string;
+
+    selected: Array<CardAbilityContainer>;
+
+    isComplete: Subject<boolean>;
 
     Init(points: number): void;
 
-    CanSelected(card: ICardAbility): boolean;
+    CanSelected(container: CardAbilityContainer | undefined): boolean;
 
-    SelectCard(card: ICardAbility): void;
+    SelectCard(container: CardAbilityContainer | undefined): void;
 
+    Confirm(): void;
 }
 
-export class DestroyedCardSelector implements ICardSelector {
+export class SingleCardSelector implements ICardSelector {
     
-    private discardPoints: number = 0;
+    private cardCount: number = 0;
 
-    selected: Array<ICardAbility> = new Array<ICardAbility>();
+    public title: string = 'select';
     
-    constructor (discardPoints: number){        
-        this.Init(discardPoints);
+    public selected: Array<CardAbilityContainer> = new Array<CardAbilityContainer>();
+
+    public isComplete: Subject<boolean> = new Subject<boolean>();
+
+    constructor (operationTitle: string, cardCount: number = 1) {
+        this.title = operationTitle;
+        this.Init(cardCount);
     }
 
-    public Init(discardPoints: number): void{
+    public Init(points: number): void {
+        this.cardCount = points;
         this.selected = [];
-        this.discardPoints = discardPoints;
-    }
 
-    public CanSelected(card: ICardAbility): boolean {
-        return card.discardCost <= this.discardPoints;        
+        this.isComplete.next(false);
     }
     
-    public SelectCard(card: ICardAbility): void {
-        if(this.CanSelected(card) && !this.selected.includes(card)){
-            this.discardPoints -= card.discardCost;
-            this.selected.push(card);
+    public CanSelected(container: CardAbilityContainer | undefined): boolean {
+
+        if(container === undefined) return false;
+
+        return container.canSelected;
+    }
+    
+    SelectCard(container: CardAbilityContainer | undefined): void {
+        
+        if(container === undefined || container.card === undefined) return;
+
+        // if always selected = cancel selection
+        if(this.selected.includes(container)){
+
+            this.cardCount++;
+            container.isSelected = false;
+            this.selected.splice(this.selected.indexOf(container), 1);
+        }else{
+
+            if(this.CanSelected(container)){
+                this.cardCount--;
+                container.isSelected = true;
+                this.selected.push(container);
+            }
         }
     }
+    
+    Confirm(): void {
+        this.isComplete.next(true);
+    }   
+}
+
+export class CardsForDestroySelector implements ICardSelector {
+        
+    private destroyPoints: number = 0;
+
+    public readonly title: string = 'destroy';
+
+    public selected: Array<CardAbilityContainer> = new Array<CardAbilityContainer>();
+
+    public isComplete: Subject<boolean> = new Subject<boolean>();
+    
+    constructor (destroyPoints: number){        
+        this.Init(destroyPoints);
+    }
+
+    public Init(destroyPoints: number): void{
+        this.selected = [];
+        this.destroyPoints = destroyPoints;
+
+        this.isComplete.next(false);
+    }
+    
+    public CanSelected(container: CardAbilityContainer | undefined): boolean {
+
+        if(container === undefined || container.card === undefined) return false;
+
+        return container.card.discardCost <= this.destroyPoints;        
+    }
+    
+    public SelectCard(container: CardAbilityContainer | undefined): void {
+
+        if(container === undefined || container.card === undefined) return;
+
+        // if always selected = cancel selection
+        if(this.selected.includes(container)){
+
+            this.destroyPoints += container.card.discardCost;
+            container.isSelected = false;
+            this.selected.splice(this.selected.indexOf(container), 1);
+        }else{
+
+            if(this.CanSelected(container)){
+                this.destroyPoints -= container.card.discardCost;
+                container.isSelected = true;
+                this.selected.push(container);
+            }
+        }
+    }    
+
+    public Confirm(): void {
+        this.isComplete.next(true);
+    }
+
 }

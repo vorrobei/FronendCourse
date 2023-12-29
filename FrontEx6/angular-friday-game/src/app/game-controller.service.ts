@@ -1,21 +1,22 @@
-import { Injectable, InjectionToken, inject } from '@angular/core';
-import { ICardThreat } from './cards/card.treat';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject, Subscription } from 'rxjs';
+import { ICardThreat } from './cards/card.treat';
 import { NextTurnDTO } from './game-domain/next-turn-dto';
 import { GameDataService } from './game-data.service';
 import { PlayerDTO } from './game-domain/player-dto';
 import { ABILITY_CODE, CardAbilityActionAddCards, CardAbilityActionChangeLife, CardAbilityActionPhaseLess, ICardAbility, ICardAbilityAction } from './cards/card.ability';
 import { TurnResultDTO } from './game-domain/turn-result-dto';
-import { Subject } from 'rxjs';
-import { DestroyedCardSelector, ICardSelector } from './cards/card.selector';
+import { CardsForDestroySelector, ICardSelector } from './cards/card.selector';
 
 export enum GAMEMODE {
   NONE = 0,
   GAME_START = 1,
   THREAT_SELECTION = 2,
-  FIGHT = 3,
-  DISCARD_CARDS = 4,
-  END_TURN = 5,
+  FIGHT = 3,  
+  SELECT_CARDS = 4,
+  DESTROY_CARDS = 5,  
+  END_TURN = 6,
 }
 
 /*
@@ -41,6 +42,45 @@ export class FigthDTO {
 }
 */
 
+export class CardAbilityContainer {
+
+  public card: ICardAbility | undefined;
+
+  public isFree: boolean = false;
+
+  public isActivated: boolean = false;
+
+  public canSelected: boolean = true;
+
+  public isSelected: boolean = false;
+
+  public currentScores: number = 0;
+
+  constructor(isFree: boolean = false){
+    this.isFree = isFree;
+  }
+
+  public SetCard(card: ICardAbility): void {
+    
+    this.card = card;
+    
+    this.Reset();
+  }
+
+  private Reset(): void {
+
+    if(this.card !== undefined){
+      this.currentScores = this.card.abilityValue;
+    }else{
+      this.currentScores = 0;
+    }
+
+    this.isActivated = false;
+    this.canSelected = true;
+    this.isSelected = false;
+  }
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -64,18 +104,21 @@ export class GameControllerService {
   // additional free cards counter  
   public extraCardsCounter: number = 0;  
 
-  // current set of ability cards
-  public abilityCards: Array<ICardAbility> = new Array<ICardAbility>();
+  // current set of ability cards  
+  public abilityCardContainers: Array<CardAbilityContainer> = new Array<CardAbilityContainer>();
   // current set of actions
   public actions: Array<ICardAbilityAction> = new Array<ICardAbilityAction>();
 
-  // current score to fight threat
-  public currentScores: number = 0;
   // score for destroying cards
-  public destoyPoints: number = 0;
+  public destroyPoints: number = 0;
 
-  // selector for select card for destroy at the end of turn
-  public destroyedSelector: ICardSelector = new DestroyedCardSelector(0);
+  // card selector
+  public currentCardSelector: ICardSelector | undefined = undefined;
+
+  // subscription on destroy cards after turn complete
+  private cardDestroySubscription: Subscription = new Subscription();
+  // cards destroyed on turn
+  private destroyedCards: Array<ICardAbility> = new Array<ICardAbility>();
   
   constructor(private router: Router, private gameData: GameDataService) {}
 
@@ -112,13 +155,13 @@ export class GameControllerService {
     console.log('mode: fight start');
     
     this.currentThreatCard = selectedCard;  
-    this.currentRewardCard = this.currentThreatCard.rewardCard;
-    this.abilityCards = [];
+    this.currentRewardCard = this.currentThreatCard.rewardCard;    
+    this.abilityCardContainers = [];
+    this.destroyedCards = []  
     this.actions = [];
     this.freeCardsCounter = this.currentThreatCard.freeCards;        
     this.extraCardsCounter = 0;
-    this.currentScores = 0;
-    this.destoyPoints = 0;
+    this.destroyPoints = 0;
 
     console.log('game state');
     console.log(this);
@@ -126,48 +169,103 @@ export class GameControllerService {
     this.router.navigate(['/fightThreat']);
   }  
 
-  // draw card from player deck
-  public DrawAbilityCard(isExtraDraw: boolean = false): ICardAbility | undefined {
+  private GetCardContainer(isFree: boolean = false): CardAbilityContainer {
+    
+    if(isFree){
+      
+      // find existing free container 
+      let cardContainer: CardAbilityContainer | undefined = this.abilityCardContainers.find((container) => { return container.card === undefined && container.isFree});
 
+      if(cardContainer === undefined){
+        cardContainer = new CardAbilityContainer(true);
+      }
+
+      return cardContainer;
+
+    } else {
+
+      return new CardAbilityContainer();
+    }
+  }
+
+  public CalcScores(): number {
+
+    let scores = 0;
+
+    for(let container of this.abilityCardContainers){
+      if(container.card !== undefined){
+        scores += container.currentScores;
+      }
+    }
+
+    this.destroyPoints = this.currentThreatCard.levelValues[this.currentThreatLevel - 1] - scores;        
+
+    console.log('scores = ' + scores.toString() + '/ destroy points = ' + this.destroyPoints.toString());    
+
+    return scores;
+  }
+
+  // draw card from player deck
+  public DrawAbilityCard(isExtraDraw: boolean = false): ICardAbility | undefined {    
+
+    let cardContainer: CardAbilityContainer | undefined;
+
+    // additional card
     if(isExtraDraw){
 
       if(this.extraCardsCounter > 0){    
 
-        this.extraCardsCounter--;                
         console.log('draw extra ability card for free');        
-      }else{        
+
+        this.extraCardsCounter--;           
+        cardContainer = this.GetCardContainer();
+                
+      } else {        
 
         console.log('no extra cards available');
+
         return undefined;
       }
+
+    // regular card
     }else{
 
-      // free card or card for hp
+      // free card 
       if(this.freeCardsCounter > 0){
 
-        this.freeCardsCounter--;      
         console.log('draw ability card for free');
-      }else{      
+
+        this.freeCardsCounter--;              
+        cardContainer = this.GetCardContainer(true);
+
+      // card for hp
+      } else {      
+
+        console.log('draw ability card for spending HP');
 
         this.player.currentPlayerHP--;
-        console.log('draw ability card for spending HP');
+        cardContainer = this.GetCardContainer();     
       }
     }
+
+    if(cardContainer === undefined) return undefined;
 
     // draw card from player deck
     let abilityCard: ICardAbility | undefined = this.RestoreAbilityCardFromDTO(this.gameData.DrawPlayerCard());
     if(abilityCard !== undefined){
 
-      this.abilityCards.push(abilityCard);    
-      this.currentScores += abilityCard.abilityValue;
-      
+      console.log(abilityCard);
+
+      cardContainer.SetCard(abilityCard);      
+
       if(abilityCard.ability !== null){
         this.actions.push(abilityCard.ability);
-      }
+      }            
 
-      this.destoyPoints = this.currentThreatCard.levelValues[this.currentThreatLevel - 1] - this.currentScores;
-      console.log(abilityCard);
-  
+      this.abilityCardContainers.push(cardContainer);      
+
+      this.CalcScores();
+
       return abilityCard;  
     }
     
@@ -182,12 +280,26 @@ export class GameControllerService {
     console.log(this);
 
     // check win or lose
-    if(this.destoyPoints > 0){
+    if(this.destroyPoints > 0){
       
       console.log('lose fight');
 
-      this.mode.next(GAMEMODE.DISCARD_CARDS);        
-      console.log('mode: discard card');
+      // subscribe on complete selection
+      this.currentCardSelector = new CardsForDestroySelector(this.destroyPoints);
+      this.cardDestroySubscription = this.currentCardSelector.isComplete.subscribe((complete) => {
+        if(complete){
+          this.currentCardSelector?.selected.forEach((container) => {
+            if(container.card === undefined) return;
+            this.destroyedCards.push(container.card);
+          });
+          this.cardDestroySubscription.unsubscribe();
+          this.currentCardSelector = undefined;
+          this.EndTurn();                    
+        }  
+      });
+      
+      this.mode.next(GAMEMODE.DESTROY_CARDS);        
+      console.log('mode: destroy cards');
 
     }else{
 
@@ -202,22 +314,30 @@ export class GameControllerService {
     this.mode.next(GAMEMODE.END_TURN);
 
     console.log('mode: end turn');
-
-    console.log('destroyed cards');
-    console.log(this.destroyedSelector.selected);    
+      
+    console.log('destroyed cards');  
+    console.log(this.destroyedCards);    
 
     let res = new TurnResultDTO();
 
-    if(this.destoyPoints > 0){
-      this.player.currentPlayerHP -= this.destoyPoints;
+    console.log('destroyed points');
+    console.log(this.destroyPoints);
+
+    if(this.destroyPoints > 0){
+      this.player.currentPlayerHP -= this.destroyPoints;
     }
 
-    res.isSuccess = this.destoyPoints <= 0;
+    res.isSuccess = this.destroyPoints <= 0;
     res.currentHP = this.player.currentPlayerHP;         
-
+    
     if(res.isSuccess){
-       
-      res.discardedAbility.push(...this.abilityCards);      
+
+      this.abilityCardContainers.forEach((container) => {
+        if(container.card === undefined) return;
+
+        res.discardedAbility.push(container.card);        
+      });
+
       if(this.currentRewardCard !== undefined){
         res.discardedAbility.push(this.currentRewardCard);
       }
@@ -231,35 +351,33 @@ export class GameControllerService {
       }
 
       res.destroyedThreat.push(this.currentThreatCard);
-
-    }else{
+    
+    } else {
+      
       console.log('discarded threats');
       console.log(this.turn.threats);
+      
+      this.abilityCardContainers.forEach((container) => {
+        
+        if(container.card === undefined) return;
 
-      for(const ability of this.abilityCards){
-        if(!this.destroyedSelector.selected.includes(ability)){
-          res.discardedAbility.push(ability);
+        if(this.destroyedCards.includes(container.card)){
+          res.destroyedAbility.push(container.card);
+        }else{
+          res.discardedAbility.push(container.card);
         }
-      }
-
-      res.destroyedAbility.push(...this.destroyedSelector.selected);
+      });
 
       res.discardedThreat.push(...this.turn.threats);
 
       res.destroyedThreat = [];
     }
-
+  
     this.gameData.EndTurn(JSON.stringify(res));
 
     this.NextTurn();
 
     return res;
-  }
-
-  public GetCardSelector(): ICardSelector {
-    
-    this.destroyedSelector.Init(this.destoyPoints);
-    return this.destroyedSelector;    
   }
 
   private RestoreAbilityCardFromDTO(cardDTO: string): ICardAbility | undefined {
@@ -302,5 +420,5 @@ export class GameControllerService {
 
     /*
     */
-  }
+  }  
 }

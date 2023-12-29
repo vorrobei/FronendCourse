@@ -1,13 +1,14 @@
 <div class="cards-display-container">
     <div class="display-scores cards-display-container__display-scores">
         <div class="current-score score display-scores__current-score">
-            {{gameController.currentScores}}            
+            {{gameController.CalcScores()}}            
         </div>
     </div>
     <div class="cards-display cards-display-container__cards-display">        
-        <div *ngFor="let card of gameController.abilityCards" class="cards-display__card-container">
-            <app-card-ability [card]="card" class="card-container__card"></app-card-ability>            
-            <app-card-ability-shadow [card]="card" [selector]="selector"></app-card-ability-shadow>
+        <div *ngFor="let cardContainer of gameController.abilityCardContainers" class="cards-display__card-container">
+            <app-card-ability [card]="cardContainer.card" class="card-container__card"></app-card-ability>            
+            <div *ngIf="cardContainer.isFree" class="free-mark card-container__free-mark">free</div>
+            <app-card-ability-shadow [card]="cardContainer" [selector]="selector"></app-card-ability-shadow>
         </div>
     </div>
 </div>

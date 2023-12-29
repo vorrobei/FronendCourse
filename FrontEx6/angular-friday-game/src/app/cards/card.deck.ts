@@ -40,18 +40,19 @@ export class CardDeck<T extends ICard> implements ICardDeck<T> {
         
         if(this.discardedCards.length > 0){
             this.cards.push(...this.discardedCards);
+            this.discardedCards = [];
         }
 
-        this.cards.sort(() => Math.random() - 0.5);         
+        this.cards.sort(() => Math.random() - 0.5);                 
     }
 
     public DrawCard(): T | undefined {                
- 
-        let card: T | undefined = this.cards.pop();                    
-        
+
+        let card: T | undefined = this.cards.pop();                            
+
         if(card !== undefined && this.GetDrawedCardByID(card.id) === undefined){
             this.drawedCards.push(card);
-        }        
+        }                
 
         return card;
     }   

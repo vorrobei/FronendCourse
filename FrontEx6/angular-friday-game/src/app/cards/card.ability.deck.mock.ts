@@ -10,14 +10,14 @@ export const AbilityCards: Array<ICardAbility> = [
             id: 101, 
             name: 'distracted', 
             abilityValue: -1, 
-            ability: new CardAbilityActionAddCards(2),
+            ability: null,
             discardCost: 1
         },
         { 
             id: 102, 
             name: 'distracted', 
             abilityValue: -1, 
-            ability: new CardAbilityActionAddCards(1),
+            ability: null,
             discardCost: 1
         },
         { 

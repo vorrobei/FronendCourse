@@ -21,6 +21,8 @@ export class GameDataService {
   private playerDeck: ICardDeck<ICardAbility> = new CardDeck<ICardAbility>('Player deck');  
   // ability deck
   private abilityDeck: ICardDeck<ICardAbility> = new CardDeck<ICardAbility>('Ability deck');  
+  // age deck
+  private ageDeck: ICardDeck<ICardAbility> = new CardDeck<ICardAbility>('Age deck');  
 
   // player
   private player: PlayerDTO = new PlayerDTO(22, 20);
@@ -37,7 +39,10 @@ export class GameDataService {
     this.playerDeck.cards = AbilityCards.filter((card) => { return card.id < 200 });
     this.playerDeck.Shuffle();        
 
-    this.abilityDeck.cards = AbilityCards.filter((card) => { return card.id >= 200 && card.id < 400 });        
+    this.abilityDeck.cards = AbilityCards.filter((card) => { return card.id >= 200 && card.id < 400 });     
+    
+    this.ageDeck.cards = AbilityCards.filter((card) => { return card.id >= 400 && card.id < 411 });     
+    this.ageDeck.Shuffle();
 
     this.threatLevel = 1;
 
@@ -96,7 +101,19 @@ export class GameDataService {
     let card: ICardAbility | undefined = this.playerDeck.DrawCard();
 
     if(card === undefined){
+
+      let ageCard: ICardAbility | undefined = this.ageDeck.DrawCard();
+      if(ageCard !== undefined){
+        this.playerDeck.DiscardCard(ageCard);
+        console.log('ADD AGE CARD!');
+        console.log(ageCard);
+      }
+
       this.playerDeck.Shuffle();
+      this.playerDeck.cards.forEach((card: ICardAbility) => {
+        if(card.ability !== null) card.ability.isActivated = false;
+      })
+
       card = this.playerDeck.DrawCard();
     }
 
@@ -131,6 +148,8 @@ export class GameDataService {
     for(let threat of turnResult.destroyedThreat){      
       this.threatDeck.DestroyCard(threat);
     }    
+
+    this.player.currentPlayerHP = turnResult.currentHP;
 
     console.log('player deck');
     console.log(this.playerDeck);    

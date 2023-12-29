@@ -1,5 +1,5 @@
-<div *ngIf="selector !== null && selector.CanSelected(card)" class="action-panel card-container__action-panel">
-    <div class="action-panel__action" (click)="onClick()">
-        Test
+<div *ngIf="selector !== undefined" class="action-panel card-container__action-panel"  (click)="onClick()">
+    <div class="action-panel__action" [ngClass]="{'action-panel__action_selected': card?.isSelected, 'action-panel__action_available': selector.CanSelected(card)}">
+        {{selector.title}}
     </div>             
 </div>

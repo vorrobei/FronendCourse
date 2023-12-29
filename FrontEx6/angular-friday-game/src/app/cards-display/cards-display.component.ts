@@ -15,32 +15,32 @@ import { ICardSelector } from '../cards/card.selector';
 })
 export class CardsDisplayComponent {
 
-  private modeChangeSubscription: Subscription = new Subscription();;
+  private modeChangeSubscription: Subscription = new Subscription();
 
   public mode: GAMEMODE = GAMEMODE.FIGHT;
 
-  public selector: ICardSelector | null = null;
+  public selector: ICardSelector | undefined = undefined;
 
   constructor(public gameController: GameControllerService) {}
 
   private onModeChange(mode: GAMEMODE): void {
 
-    if(mode === GAMEMODE.DISCARD_CARDS){
-      this.selector = this.gameController.GetCardSelector();
+    if(mode === GAMEMODE.DESTROY_CARDS || mode === GAMEMODE.SELECT_CARDS){
+      this.selector = this.gameController.currentCardSelector;
     }else{
-      this.selector = null;
+      this.selector = undefined;
     }
     
     this.mode = mode;
   }
 
-  ngOnInit(){
+  public ngOnInit(){
     this.modeChangeSubscription = this.gameController.mode.subscribe((mode) => {
       this.onModeChange(mode);      
     })
   }
 
-  ngOnDestroy(){
+  public ngOnDestroy(){
     console.log('card display unsubscribe mode change event');
     this.modeChangeSubscription.unsubscribe();
   }

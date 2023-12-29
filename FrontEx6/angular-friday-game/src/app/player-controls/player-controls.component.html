@@ -2,10 +2,12 @@
     <div class="player-actions player-controls-container__player-actions">
         <input class="player-actions__action" type="button" *ngFor="let action of gameController.actions" value={{action.name}} (click)="onAction(action)">
     </div>
-    <div class="player-controls player-controls-container__player-controls">
-        <button class="button-draw player-controls__button-draw" type="button" (click)="onDraw()">{{GetDrawButtonText()}}</button>
-        <button *ngIf="this.gameController.extraCardsCounter" class="button-add-draw player-controls__button-add-draw" type="button" (click)="onAddDraw()">{{GetExtraDrawButtonText()}}</button>
-        <button class="button-fight-end player-controls__button-fight-end" type="button" (click)="onEndFight()">End Fight</button>
-        <button class="button-turn-end player-controls__button-turn-end" type="button" (click)="onEndTurn()">End Turn</button>
+    <div *ngIf="mode === 3" class="fight-controls player-controls-container__fight-controls">
+        <button class="button-draw fight-controls__button-draw" type="button" (click)="onDraw()">{{GetDrawButtonText()}}</button>
+        <button *ngIf="this.gameController.extraCardsCounter" class="button-add-draw fight-controls__button-add-draw" type="button" (click)="onAddDraw()">{{GetExtraDrawButtonText()}}</button>
+        <button class="button-fight-end fight-controls__button-fight-end" type="button" (click)="onEndFight()">End Fight</button>
+    </div>
+    <div *ngIf="mode === 4 || mode === 5" class="selection-controls player-controls-container__selection-controls">
+        <button class="button-selection-confirm selection-controls__button-selection-confirm" type="button" (click)="onConfirmSelection()">Confirm Selection</button>
     </div>
 </div>

@@ -38,3 +38,16 @@
 .cards-display__card-container{
     position: relative;
 }
+
+.card-container__free-mark {
+    position: absolute;
+    top: 180px;
+    left: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: cyan;
+    font-size: 0.6rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    padding: 5px;
+}

@@ -59,7 +59,7 @@ export class CardAbilityActionChangeLife implements ICardAbilityAction {
 
     constructor (lifePoints: number) {
         this.lifePoints = lifePoints;        
-        this.name = this.lifePoints < 0 ? '+' : '' + this.lifePoints.toString() + ' life';
+        this.name = (this.lifePoints < 0 ? '' : '+') + this.lifePoints.toString() + ' life';
     }
 
     public Exec(gameController: GameControllerService): void {
@@ -82,13 +82,13 @@ export class CardAbilityActionChangeLife implements ICardAbilityAction {
 
 export class CardAbilityActionPhaseLess implements ICardAbilityAction {
 
-    code: ABILITY_CODE = ABILITY_CODE.PHASELESS;
+    public code: ABILITY_CODE = ABILITY_CODE.PHASELESS;
 
-    name: string = 'phase -1';
+    public name: string = 'phase -1';
 
-    isActivated: boolean = false;
+    public isActivated: boolean = false;
 
-    Exec(gameController: GameControllerService): void {
+    public Exec(gameController: GameControllerService): void {
 
         if(gameController === null || this.isActivated) return;     
 
@@ -98,16 +98,18 @@ export class CardAbilityActionPhaseLess implements ICardAbilityAction {
             console.log('reduce threat level');
             console.log('current level: ' + gameController.currentThreatLevel.toString());
         }
+
+        this.isActivated = true;        
     }
 }
 
 export class CardAbilityActionAddCards implements ICardAbilityAction {
 
-    code: ABILITY_CODE = ABILITY_CODE.ADDCARDS;
+    public code: ABILITY_CODE = ABILITY_CODE.ADDCARDS;
 
-    name: string = 'card';
+    public name: string = 'card';
 
-    isActivated: boolean = false;
+    public isActivated: boolean = false;
 
     private extraCards: number;
 
@@ -124,9 +126,23 @@ export class CardAbilityActionAddCards implements ICardAbilityAction {
 
         console.log('extra cards draw points');
         console.log('points: ' + gameController.extraCardsCounter.toString());
+
+        this.isActivated = true;        
     }
 }
 
+export class CardAbilityAction1xDouble implements ICardAbilityAction {
+
+    code: ABILITY_CODE = ABILITY_CODE.DOUBLE;
+
+    name: string = '1x double';
+
+    isActivated: boolean = false;
+
+    Exec(gameController: GameControllerService): void {
+        throw new Error("Method not implemented.");
+    }
+}
 
 /*
 export class CardAbilityActionCopy implements ICardAbilityAction {
@@ -194,18 +210,6 @@ export class CardAbilityAction1xExchange implements ICardAbilityAction {
     }
 }
 
-export class CardAbilityAction1xDouble implements ICardAbilityAction {
-
-    code: ABILITY_CODE = ABILITY_CODE.DOUBLE;
-
-    name: string = '1x double';
-
-    isActivated: boolean = false;
-
-    Exec(gameController: GameControllerService): void {
-        throw new Error("Method not implemented.");
-    }
-}
 
 export class CardAbilityActionSort3Card implements ICardAbilityAction {
 
