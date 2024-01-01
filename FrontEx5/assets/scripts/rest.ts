@@ -21,7 +21,7 @@ export class RestToJSONServer implements IRestQuiz {
         
         let endPointURL : string = this._serverURL + getURL;
 
-        return (await fetch(endPointURL)).json() as T;
+        return (await fetch(endPointURL)).json() as T;  // тут можно обойтись без явного  приведения типов
     }
 
     public async Post<T>(postUrl: string, data: unknown): Promise<T>{
@@ -34,7 +34,7 @@ export class RestToJSONServer implements IRestQuiz {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
-        })).json() as T;
+        })).json() as T; // тут можно обойтись без явного  приведения типов
     }
     
 }
